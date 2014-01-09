@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+    <style type="text/css">
+        * {
+            font-size: 24pt;
+        }
+        body {
+            background: url('parchment.jpg');
+        }
+        .reg {
+            font-family: 'TengwarAnnatarRegular';
+        }
+		.bol {
+            font-family: 'TengwarAnnatarBold';
+		}
+		.ita {
+            font-family: 'TengwarAnnatarItalic';
+		}
+		.ibl {
+            font-family: 'TengwarAnnatarBoldItalic';
+		}
+        .roman {
+            font-size: 20pt;
+        }
+        .centre {
+            text-align: center;
+        }
+    </style>
+    <title>Date of Imladris</title>
+</head>
+<body>
+<div class="centre">
+    <div id="sindarinTengwar" class="reg"></div>
+    <div id="sindarinNormal" class="roman"></div>
+</div>
+<script type="text/javascript">
+    var today      = new Date();
+    var todayDay   = today.getUTCDate();
+    var todayMonth = today.getUTCMonth() + 1;
+    var todayYear  = today.getUTCFullYear();
+</script>
+<script src="calendar.js"></script>
+</body>
+</html>
