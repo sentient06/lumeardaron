@@ -55,29 +55,37 @@
     var formattedLoa = (elvishCalendar.cycle - 1) * 12 + elvishCalendar.loa;
     var formattedDay = elvishCalendar.day - dayCounter;
     var formattedSST = seasonSindarinTengwar[seasonCounter];
+    var formattedSSN = seasonSindarinNormal[seasonCounter];
 
     var sindarinTengwarReadableDate = "";
     var sindarinNormalReadableDate  = "";
+    var englishNormalReadableDate   = "";
 
     if (seasons[seasonCounter] !== 1) {
         sindarinTengwarReadableDate = calendar.translateNumber(formattedDay) + ' hJ5 ';
         sindarinNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' uin ';
+        englishNormalReadableDate   = formattedDay + ' of ';
     }
 
     sindarinTengwarReadableDate += formattedSST +
-                     ' hJ5 ' + calendar.translateNumber(formattedLoa) +
-                     ' hJ5 ' + calendar.translateNumber(formattedYen);
-
-    var formattedSSN = seasonSindarinNormal[seasonCounter];
+                    ' hJ5 ' + calendar.translateNumber(formattedLoa) +
+                    ' hJ5 ' + calendar.translateNumber(formattedYen);
 
     sindarinNormalReadableDate  += formattedSSN +
-                     ' uin ' + formattedLoa.toString(12).toUpperCase() +
-                     ' uin ' + formattedYen.toString(12).toUpperCase();
+                    ' uin ' + formattedLoa.toString(12).toUpperCase() +
+                    ' uin ' + formattedYen.toString(12).toUpperCase();
+
+    englishNormalReadableDate   += formattedSSN +
+                    ' of ' + formattedLoa + ' (loa) ' +
+                    ' of ' + formattedYen + ' (yén)';
 
     var sindarinTengwarReadable = document.createTextNode(sindarinTengwarReadableDate);
     document.getElementById("sindarinTengwar").appendChild(sindarinTengwarReadable);
 
     var sindarinNormalReadable = document.createTextNode(sindarinNormalReadableDate);
     document.getElementById("sindarinNormal").appendChild(sindarinNormalReadable);
+
+    var englishNormalReadable = document.createTextNode(englishNormalReadableDate);
+    document.getElementById("englishNormal").appendChild(englishNormalReadable);
 
 })();

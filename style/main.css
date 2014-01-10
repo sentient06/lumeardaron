@@ -1,8 +1,10 @@
 * {
-    font-size: 24pt;
+    
 }
 body {
     background: url('parchment.jpg');
+    font-size: 20pt;
+    font-family: Helvetica, Verdana, Arial;
 }
 .reg {
     font-family: 'TengwarAnnatarRegular';
@@ -16,9 +18,35 @@ body {
 .ibl {
     font-family: 'TengwarAnnatarBoldItalic';
 }
-.roman {
-    font-size: 20pt;
+.medium {
+    font-size: 24pt;
+}
+.normal {
+    font-size: 18pt;
+}
+.smaller {
+    font-size: 16pt;
 }
 .centre {
+    text-align: center;
+}
+
+table, tr, td {
+    font-size: 12pt;
+}
+
+thead > tr > th {
+    font-size: 14pt;
+    height: 30px;
+}
+
+tbody > tr > th {
+    font-size: 12pt;
+    height: 30px;
+}
+
+td {
+    width: 30px;
+    height: 30px;
     text-align: center;
 }
