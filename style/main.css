@@ -1,11 +1,26 @@
 * {
-    
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 body {
     background: url('parchment.jpg');
     font-size: 20pt;
     font-family: Helvetica, Verdana, Arial;
 }
+p {
+    margin: 10px;
+}
+p.medium {
+    margin: 10px;
+}
+p.normal {
+    margin: 14px;
+}
+p.smaller {
+    margin: 24px;
+}
+
 .reg {
     font-family: 'TengwarAnnatarRegular';
 }
@@ -31,22 +46,41 @@ body {
     text-align: center;
 }
 
-table, tr, td {
+table.tengwar {
+    border: 1px solid #000;
     font-size: 12pt;
+    font-family: 'TengwarAnnatarRegular';
 }
 
-thead > tr > th {
+table.tengwar th {
+    background: rgba(255,255,255,0.5);
+    font-family: 'TengwarAnnatarBold';
+    font-weight: normal;
+    padding: 2px;
+}
+
+table.tengwar td.today {
+    background: rgba(255,255,255,0.5);
+    font-family: 'TengwarAnnatarBold';
+    color: red;
+}
+
+table.tengwar td:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+table.tengwar > thead > tr > th {
     font-size: 14pt;
     height: 30px;
 }
 
-tbody > tr > th {
+table.tengwar > tbody > tr > th {
     font-size: 12pt;
-    height: 30px;
+    height: 38px;
 }
 
-td {
-    width: 30px;
-    height: 30px;
+table.tengwar td {
+    width: 38px;
+    height: 38px;
     text-align: center;
 }

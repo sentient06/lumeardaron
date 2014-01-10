@@ -11,7 +11,8 @@ function Calendar() {
      */
     _this.translateNumber = function(decNumber) {
         var duodecimalNumber = decNumber.toString(12);
-        var tengwarDuodecimal = ["ðÊ", "ñÊ", "òO", "ó(", "ô L","õ(", "öO", "÷O", "øÊ", "ùÈ", "úÊ", "ûÊ", ".Ê"];
+        // var tengwarDuodecimal = ["ðÊ", "ñÊ", "òO", "ó(", "ô L","õ(", "öO", "÷O", "øÊ", "ùÈ", "úÊ", "ûÊ", ".Ê"];
+        var tengwarDuodecimal = ["ð", "ñ", "ò", "ó", "ô","õ", "ö", "÷", "ø", "ù", "ú", "û", "."];
         var formattedNumber = "";
         var digit = null;
         for (var i = duodecimalNumber.length - 1; i >= 0; i--) {

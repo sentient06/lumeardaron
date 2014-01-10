@@ -76,8 +76,8 @@
                     ' uin ' + formattedYen.toString(12).toUpperCase();
 
     englishNormalReadableDate   += formattedSSN +
-                    ' of ' + formattedLoa + ' (loa) ' +
-                    ' of ' + formattedYen + ' (yén)';
+                    ' of ' + formattedLoa +
+                    ' of ' + formattedYen;
 
     var sindarinTengwarReadable = document.createTextNode(sindarinTengwarReadableDate);
     document.getElementById("sindarinTengwar").appendChild(sindarinTengwarReadable);
