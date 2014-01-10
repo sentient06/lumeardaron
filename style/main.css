@@ -1,0 +1,24 @@
+* {
+    font-size: 24pt;
+}
+body {
+    background: url('parchment.jpg');
+}
+.reg {
+    font-family: 'TengwarAnnatarRegular';
+}
+.bol {
+    font-family: 'TengwarAnnatarBold';
+}
+.ita {
+    font-family: 'TengwarAnnatarItalic';
+}
+.ibl {
+    font-family: 'TengwarAnnatarBoldItalic';
+}
+.roman {
+    font-size: 20pt;
+}
+.centre {
+    text-align: center;
+}
