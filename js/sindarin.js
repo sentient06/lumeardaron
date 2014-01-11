@@ -22,14 +22,14 @@
         '1FhGj',  // Etuil
         'jlD6',   // Laer
         'lr#iD ', // Iavas
-        '7H5$4% ñÊ', // Orenidh 1
-        '7H5$4% òO', // 2
-        '7H5$4% ó('
+        '7H5$4% ñ', // Orenidh 1
+        '7H5$4% ò', // 2
+        '7H5$4% ó'
     ];
     if (elvishCalendar.leapLoa) {
         seasons.push(1, 1, 1);
         seasonSindarinNormal.push('Orenidh 4', 'Orenidh 5', 'Orenidh 6');
-        seasonSindarinTengwar.push('7H5$4% ô L', '7H5$4% õ(', '7H5$4% öO');
+        seasonSindarinTengwar.push('7H5$4% ô', '7H5$4% õ', '7H5$4% ö');
     }
     seasons.push(54, 72, 54, 1);
     seasonSindarinNormal.push(
