@@ -1,3 +1,7 @@
+//  Created by Giancarlo Mariot in January 2014.
+//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Licensed under BSD 2-Clause.
+
 function Calendar() {
 
     "use strict";
@@ -12,7 +16,9 @@ function Calendar() {
     _this.translateNumber = function(decNumber) {
         var duodecimalNumber = decNumber.toString(12);
         // var tengwarDuodecimal = ["ðÊ", "ñÊ", "òO", "ó(", "ô L","õ(", "öO", "÷O", "øÊ", "ùÈ", "úÊ", "ûÊ", ".Ê"];
-        var tengwarDuodecimal = ["ð", "ñ", "ò", "ó", "ô","õ", "ö", "÷", "ø", "ù", "ú", "û", "."];
+        // var tengwarDuodecimal = ["ð", "ñ", "ò", "ó", "ô","õ", "ö", "÷", "ø", "ù", "ú", "û", "."]; //ñ©ñ˜ñ™ñ¨
+        var tengwarDuodecimal = ["ð¨", "ñ¨", "ò™", "ó˜", "ô¨", "õ™", "ö¨", "÷¨", "ø¨", "ù™", "ú¨", "û¨", "."];
+                              //  0     1     2     3     4     5     6     7     8     9     A     B
         var formattedNumber = "";
         var digit = null;
         for (var i = duodecimalNumber.length - 1; i >= 0; i--) {

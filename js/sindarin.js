@@ -1,3 +1,7 @@
+//  Created by Giancarlo Mariot in January 2014.
+//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Licensed under BSD 2-Clause.
+
 (function(){
 
     "use strict";
