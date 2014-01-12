@@ -2,9 +2,8 @@
 //  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
 //  Licensed under BSD 2-Clause.
 
-(function(){
-
-    "use strict";
+(function(){ "use strict"; var doc = document;
+doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
@@ -92,4 +91,5 @@
     var englishNormalReadable = document.createTextNode(englishNormalReadableDate);
     document.getElementById("englishNormal").appendChild(englishNormalReadable);
 
+},false);
 })();
