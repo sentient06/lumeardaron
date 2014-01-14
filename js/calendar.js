@@ -17,8 +17,8 @@ function Calendar() {
         var duodecimalNumber = decNumber.toString(12);
         // var tengwarDuodecimal = ["ðÊ", "ñÊ", "òO", "ó(", "ô L","õ(", "öO", "÷O", "øÊ", "ùÈ", "úÊ", "ûÊ", ".Ê"];
         // var tengwarDuodecimal = ["ð", "ñ", "ò", "ó", "ô","õ", "ö", "÷", "ø", "ù", "ú", "û", "."]; //ñ©ñ˜ñ™ñ¨
+        //                        0     1     2     3     4     5     6     7     8     9     A     B
         var tengwarDuodecimal = ["ð¨", "ñ¨", "ò™", "ó˜", "ô¨", "õ™", "ö¨", "÷¨", "ø¨", "ù™", "ú¨", "û¨", "."];
-                              //  0     1     2     3     4     5     6     7     8     9     A     B
         var formattedNumber = "";
         var digit = null;
         for (var i = duodecimalNumber.length - 1; i >= 0; i--) {
@@ -29,7 +29,7 @@ function Calendar() {
             } else {
                 digit = duodecimalNumber[i];
             }
-            formattedNumber += tengwarDuodecimal[parseInt(digit)];
+            formattedNumber += tengwarDuodecimal[parseInt(digit, 10)];
         }
         return formattedNumber;
     };
@@ -76,7 +76,6 @@ function Calendar() {
          *
          * Period     = Yeni cycle, just for readability
          */
-
         var leapDays          = 3,   // leap days every loa
             leapSpace         = 12,  // leap period (12 loar)
             cyclesWithinYen   = 12,  // loar cycles in an yen
@@ -132,17 +131,17 @@ function Calendar() {
         var day = dayOfCycle - firstDayOfLoa;
 
         var values = {
-               'period':period
-          , 'yeniCycle':yeniCycle
-          ,       'yen':yen
-          ,     'cycle':cycle
-          ,   'leapLoa':leapLoa
-          ,       'loa':loa
-          ,       'day':day
+               'period':period,
+            'yeniCycle':yeniCycle,
+                  'yen':yen,
+                'cycle':cycle,
+              'leapLoa':leapLoa,
+                  'loa':loa,
+                  'day':day
         };
 
         return values;
 
-    }
+    };
 
 }

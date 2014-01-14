@@ -20,3 +20,9 @@
 .tengwar-large {
 	font-size: 2em;
 }
+
+
+.normal-size,
+.normal-size p {
+	font-size: 14px;
+}
