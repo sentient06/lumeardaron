@@ -97,78 +97,62 @@
           <h1>How is the date calculated</h1>
         </div>
 
-<p>
-  In order to make the algorithm for the calculation of the elven date, I first got inspiration from two texts from the Internet. I do not completely agree with them, but they served as a very important basis for the whole logic. The first text was taken from the iOS application "ElvenSpeak" and the apparent author is Dave Woosley.
-</p>
+        <h3>Introduction</h3>
+        <p>
+          In order to make the algorithm for the calculation of the elven date, I first got inspiration from two texts from the Internet which you can read with comments here. I do not completely agree with them, but they served as a very important basis for the whole logic.
+        </p>
+        <p>
+          Assuming the reader is already familiar with the way these calendars work, by either reading Tolkien material or the texts provided here, I want to further discuss the logic used in this project.
+        </p>
 
-<hr />
+        <h3>Rules</h3>
+        <p>A few rules are taken from the material available:</p>
 
-<h2>The Quendian (Elven) Calendar and the Six Seasons</h2>
+        <ol>
+          <li>One "normal" loa has 365 days</li>
+          <li>One leap loa has 368 days</li>
+          <li>The loa is leap every 12 loar</li>
+          <li>144 loar result in 1 yén</li>
+          <li>The last loa of every 3rd yén is not a leap loa</li>
+        </ol>
 
-<p>The Eldar divided their solar year (or loa 'growth') into six seasons of unequal length. The lengths are unequal because the Quendi were more sensitive to and concerned with the transition of one season into another and the seasonal changes in vegetation as the wheel of the year turned.</p>
+        <h3>Assumptions</h3>
 
-<h3>Important Transition dates</h3>
+        <p>A few assumptions also take place:</p>
 
-<ol>
-  <li>Yestarë ('First Day'): First day of the loa, and the day before Spring (Tuilë).</li>
-  <li>Lairë 1st</li>
-  <li>Yavië 1st</li>
-  <li>The 3 Enderi (said to be days of festival); after these, then Quellë begins</li>
-  <li>Hrivë 1st</li>
-  <li>Coirë 1st</li>
-</ol>
+        <ol>
+          <li>The reckoning must start as closest as possible with the Gregorian calendar</li>
+          <li>The first day of winter must match the 21st of November of the year 1</li>
+          <li>The offset of the last rule must be applied, pushing the first day of the first loa to 29th of March, year 1</li>
+          <li>No other adjustements other than the ones expected in the rules above must be made</li>
+        </ol>
 
-<p>(I did not include Mettarë because it is the day just before Yestarë, and thus is the equivalent of "New Year's Eve". It is important as a holiday, but not as a seasonal transition in itself.)</p>
+        <h3>Method of calculation</h3>
 
-<p>But how do we relate these dates to the solar year as we know it?<br />
-When does the loa start, and why?</p>
+        <p>The current time will be calculated in the following manner:</p>
 
-<p>According to Appendix 'D' of The Lord of the Rings,</p>
-<blockquote class="normal-size">
-  <p>
-    (...) the loa began with 'yestarë', the day immediately before Tuilë (Spring) and ended with 'mettarë', the day immediately after Coirë (Stirring).  Between Yavië and Quellë were inserted three enderi or 'middle-days'. This provided a year of 365 days which was supplemented by doubling the enderi (adding 3 days) in every twelfth year.
-  </p>
-  <p>
-    How any resulting inaccuracy was dealt with is uncertain.  If the year was then of the same length as now, the yén (a period equaling 144 years) would have been more than a day too long.  That there was an inaccuracy is shown by a note in the Calendars of the Red book to the effect that in the 'Reckoning of Rivendell' the last year of every third yén was shortened by three days: the doubling of the three enderi due in that year was omitted ; 'but that has not happened in our time'. Of the adjustment of any remaining inaccuracy there is no record.
-  </p>
-</blockquote>
+        <ol>
+          <li>The 1st of January of the year 1 (gregorian day 1) will be calculated using the Gregorian calendar (it is assumed that any innacuracies were dealt with in this reckoning)</li>
+          <li>The current date is the sum of all days since gregorian day 1 minus the offset of the first year/loa (day 1)</li>
+          <li>All loar will be grouped in clusters of 12, designated "leap cycle" or, for short, "cycle"</li>
+          <li>All yéni will be the result of a cluster of 12 cycles</li>
+          <li>All yéni will be grouped in clusters of 3 designated "yeni group period", or, for short, "period", in which there will be 3 days removed to follow rule #5</li>
+        </ol>
 
-<p>But at exactly what point in the solar year did the loa begin?</p>
+        <h3>Values</h3>
 
-<p>This is a complex question.  Let us look at the evidence:
+        <p>From this point, we can calculate a few constant values to be used in the whole logic:</p>
 
-   1. We know from linguistic evidence that the year began sometime in what we would call Spring.
-   2. We also know from Appendix 'D' that the date given for Yestarë is “Shire April 6th”.   However, it is very important to note that this correspondence is to the Shire version of April 6th, not April 6th on our modern (Gregorian) calendar.
-   3. Additionally, we know from Appendix 'D' that, “Mid-year's Day [in the Shire calendar] was intended to correspond as nearly as possible to the summer solstice. In that case the Shire dates were actually in advance of ours by some ten days, and our New Year's Day corresponded more or less to the Shire January 9.”
-</p>
-
-<p>So, how to solve this puzzle?</p>
-
-<p>Luckily, some Fellow Tolkienists have already done this part of our calendar work for us.  I refer to the entry in the Encyclopedia of Arda, which has a JavaScript calculator to calculate any given date: .</p>
-
-As you can see, Shire April 6th (6 Astron) is equivalent to the beginning of the Elven year (loa); which corresponds to our March 28th.  This calculator takes into account fact #3 above, and applies the offset to the dates.  (For further confirmation of this fact, I refer interested parties to the notes for this section of their web site.)
-Translating the loa to the Modern Calendar
-
-The question immediately arises: Why would the Quendi begin their solar year approximately a week after the vernal equinox, and not directly on the equinox itself? The explanation, I think, is that the loa was not strictly a rule based calendar, but neither was it precisely a lunisolar calendar, but something of a combination of both – with a strong stellar-calibration component.  As we know, 'Summer' and 'Winter' each had 72 days, and the remaining seasons 54 each.  It is significant that each of these numbers is evenly divisible by 6, as the Quendi used a six day 'week', which they called an enquië. [Much more information on the Elven view of Time is explained in the article directly following this one.]
-
-Additionally, we know (from linguistic evidence associated with the Lost Tales), that both the Summer and Winter solstices were celebrated. Given these facts, we now look for evidence that the Quendi used some sort of astronomical calibration [2] for their calendar, much like the ancient builders of Stonehenge were said to do, or the ancient Mayans. Whatever the astronomical event was, it must have been something fairly obvious that could be noted and acted upon by a population that was at least semi-nomadic (references to Elvish “wandering”—to say nothing of the Great Journey—are scattered throughout the whole Legendarium).  This would seem to rule out large edifices such as Stonehenge or pyramidal constructions for the population as a whole, though it is certain that the Noldor, in particular, attained and surpassed such technology. Using either of the solstices as a calibration point doesn't seem to fit; as each solstice would occur 5 enquier after the start (or 7 enquier before the end) of 'Summer' or 'Winter', respectively.  This doesn't seem to make sense given the fact that both 'Summer' and 'Winter' contained 12 enquier, and thus are evenly divisible into two halves of 6 enquier each. And, since the seasons are of unequal length and none fall upon an equinoctial boundary, the equinoxes don't seem to be likely points either.
-
-What's left?
-
-Surprisingly (and serendipitously) I discovered that the Pleiades, called the Remmirath ('Netted Stars') by the Elves, appears overhead (culminates) at midnight on November 21st – the beginning of Hrivë (Winter). In addition, they rise with the Sun at the beginning of Lairë (Summer), which admittedly cannot be seen directly – were it not for the fact that another constellation, which we know as Corona Borealis, culminates at midnight at the beginning of Lairë, as it lies exactly opposite the Pleiades in the sky. [3] Both of these events are explained more fully in the The Pawnee Star Calendar.  Thus, using the date of November 21st on the Gregorian Calendar as a calibration date, and applying the length of the seasons forward and around from this date, we arrive at exactly the points determined by calculation using the Encyclopedia of Arda's calendar [4] .
-
-I should also mention here that the stellar configuration at the end of Varda's labors in Chapter 3 of the Silmarillion matches what is seen at midnight, November 21st.
-
-“Of the Coming of the Elves” describes Varda's labours and the resulting sky:
-
-    Then Varda went forth from the council, and she looked out from the height of Taniquetil, and beheld the darkness of Middle-earth beneath the innumerable stars, faint and far. Then she began a great labour, greatest of all the works of the Valar since their coming into Arda. She took the silver dews from the vats of Telperion, and therewith she made new stars and brighter against the coming of the Firstborn; wherefore she whose name out of the deeps of time and the labours of Eä was Tintallë, the Kindler, was called after by the Elves Elentári, Queen of the Stars. Carnil [Mars] and Luinil [Vega*], Nénar [Capella*] and Lumbar [Saturn], Alcarinquë [Jupiter] and Elemmírë [Mercury] she wrought in that time, and many other of the ancient stars she gathered together and set as signs in the heavens of Arda: Wilwarin [Cassiopeia], Telumendil [Gemini?], Soronúmë [Lyra*], and Anarríma [Leo*]; and Menelmacar [Orion] with his shining belt, that forebodes the Last Battle that shall be at the end of days. And high in the north as a challenge to Melkor she set the crown of seven mighty stars to swing, Valacirca, the Sickle of the Valar and sign of doom [Ursa Major—The Big Dipper].
-
-    It is told that even as Varda ended her labours, and they were long, when first Menelmacar [Orion] strode up the sky and the blue fire of Helluin [Sirius] flickered in the mists above the borders of the world, in that hour the Children of the Earth awoke, the Firstborn of Ilúvatar. By the starlit mere of Cuiviénen, Water of Awakening, they rose from the sleep of Ilúvatar; and while they dwelt yet silent by Cuiviénen their eyes beheld first of all things the stars of heaven. Therefore they have ever loved the starlight, and have revered Varda Elentári above all the Valar. [5]
-</p>
-<p>
-© 2005,2007 by Dave Woosley, All rights reserved
-</p>
-
+        <dl class="dl-horizontal">
+           <dt>loa             </dt><dd><span class="label label-success">365</span></dd>
+           <dt>leap.period     </dt><dd><span class="label label-success">3  </span></dd>
+           <dt>leap.loa        </dt><dd><span class="label label-default">loa + leap.period                </span> = <span class="label label-warning">365 + 3            </span> = <span class="label label-success">368</span></dd>
+           <dt>normal.cycle    </dt><dd><span class="label label-default">loa × 11 + leap.loa              </span> = <span class="label label-warning">365 × 11 + 368     </span> = <span class="label label-success">4,383</span></dd>
+           <dt>no.leap.cycle   </dt><dd><span class="label label-default">loa × 12                         </span> = <span class="label label-warning">365 × 12           </span> = <span class="label label-success">4,380</span></dd>
+           <dt>normal.yén      </dt><dd><span class="label label-default">cycle × 12                       </span> = <span class="label label-warning">4,383 × 12         </span> = <span class="label label-success">13,149</span></dd>
+           <dt>no.leap.yén     </dt><dd><span class="label label-default">normal.cycle × 11 + no.leap.cycle</span> = <span class="label label-warning">4,383 × 11 + 4,380 </span> = <span class="label label-success">13,146</span></dd>
+           <dt>period          </dt><dd><span class="label label-default">normal.yén × 2 + no.leap.yén     </span> = <span class="label label-warning">13,149 × 2 + 13,146</span> = <span class="label label-success">39,444</span></dd>
+        </dl>
 
       </div>
     </div>
