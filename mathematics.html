@@ -154,6 +154,19 @@
            <dt>period          </dt><dd><span class="label label-default">normal.yén × 2 + no.leap.yén     </span> = <span class="label label-warning">13,149 × 2 + 13,146</span> = <span class="label label-success">39,444</span></dd>
         </dl>
 
+        <h3>Absolute date</h3>
+
+        <p>Before assembling the elven calendar, we must count how many days passed since the beginning of the Gregorian reckoning.</p>
+        <p>Assuming the Gregorian reckoning fixes the Julian calendar deficiencies and the year 1 of this counting is in effect the first year of the common era, we sum up all days passed since the beginning of the reckoning until the last day of the previous year. Then we calculate how many days passed in the current gregorian year.</p>
+        <p>To count the days passed in the current year we can use this equation:</p>
+        <p class="text-center">
+          <img src="./img/gregorianDayOfYear.png" alt="dl = [floor(30.6*(m+9)%12)+58.5+d]%365" />
+        </p>
+        <p>To count the days passed since year 1, we can use this:</p>
+        <p class="text-center">
+          <img src="./img/gregorianAbsoluteDay.png" alt="DL = 365*(y-1)+floor((y-1)/4)-floor((y-1)/100)-floor((y-1)/400)+dl" />
+        </p>
+
       </div>
     </div>
 
