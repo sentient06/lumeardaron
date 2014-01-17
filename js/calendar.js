@@ -36,32 +36,19 @@ function Calendar() {
 
     /**
      * Calculates which day of this era is today based on the gregorian calendar.
-     * @param gregorianDay
-     * @param gregorianMonth
-     * @param gregorianYear
+     * @param d - Gregorian day
+     * @param m - Gregorian month
+     * @param y - Gregorian year
      * @returns {number|string}
      */
-    _this.calculateAbsoluteDate = function(gregorianDay, gregorianMonth, gregorianYear) {
-        var gregorianMonthsLength = [31,28,31,30,31,30,31,31,30,31,30,31];
-        var gregorianLeapYear     = ((gregorianYear % 4 === 0) && (gregorianYear % 100 !== 0)) || (gregorianYear % 400 === 0);
-        
-        if (gregorianLeapYear) { gregorianMonthsLength[1] = 29; }
-
-        var gregorianPastYear        = gregorianYear - 1;
-        var gregorianCenturyLeapDays = Math.floor(gregorianPastYear / 100);
-        var gregorianTotalLeapDays   = Math.floor(gregorianPastYear / 4) - gregorianCenturyLeapDays + Math.floor(gregorianCenturyLeapDays / 4);
-
-        var counter = 0;
-        var gregorianYearDay = gregorianDay;
-
-        while (counter < gregorianMonth-1) {
-            gregorianYearDay += gregorianMonthsLength[counter];
-            counter++;
-        }
-
-        return 365 * gregorianPastYear + gregorianTotalLeapDays + gregorianYearDay;
+    _this.calculateAbsoluteDate = function(d,m,y) {
+        var ly = (y>0) && !(y%4>0) && ( (y%100>0)||!(y%400>0) );     //leap year
+        var dy = Math.floor((30.6*((m + 9) % 12) + 58.5 + d)) % 365; //day of year (no leap)
+        var gsum = (Math.floor((y-1)/4)-Math.floor((y-1)/100)+Math.floor((y-1)/400)); //days of age
+        if (ly) { if ((dy==59 && d==1) || dy>59) { dy += 1; } } // leap day of year
+        dy += 1; //offset from 0 to 1
+        return 365*(y-1)+gsum+dy; //sum
     };
-
 
     _this.assembleElvishCalendar = function(gregorianAbsoluteDay) {
 
