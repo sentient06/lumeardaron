@@ -71,7 +71,7 @@
   </head>
 
   <body>
-
+    <a name="top"></a>
     <!-- Wrap all page content here -->
     <div id="wrap">
 
@@ -89,10 +89,10 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Current date <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li class="active"><a href="rivendell-sindarin.html">Rivendell reckoning</a></li>
+                  <li><a href="rivendell-sindarin.html">Rivendell reckoning</a></li>
                   <!-- <li><a href="#">The King's reckoning</a></li> -->
                   <!-- <li><a href="#">The Steward's reckoning</a></li> -->
                   <!-- <li><a href="#">Shire reckoning</a></li> -->
@@ -102,9 +102,10 @@
                 </ul>
               </li>
 
-              <li class="dropdown">
+              <li class="dropdown active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">How it works <b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                  <li class="active"><a href="references.html">References</a></li>
                   <li><a href="duodecimal.html">Duodecimal system</a></li>
                 </ul>
               </li>
@@ -116,188 +117,29 @@
 
       <!-- Begin page content -->
       <div class="container">
-        <div class="page-header hidden-xs">
-          <h1>How is the date calculated</h1>
+        <div class="page-header">
+          <h1>References</h1>
         </div>
 
-<p class="text-danger">
-  In order to make the algorithm for the calculation of the elven date, I first got inspiration from two texts from the Internet. I do not completely agree with them, but they served as a very important basis for the whole logic. The first text was taken from the iOS application "ElvenSpeak" and the apparent author is Dave Woosley.
-</p>
-
-<hr />
-
-<h3>The Quendian (Elven) Calendar and the Six Seasons</h3>
-
-<p>The Eldar divided their solar year (or loa 'growth') into six seasons of unequal length. The lengths are unequal because the Quendi were more sensitive to and concerned with the transition of one season into another and the seasonal changes in vegetation as the wheel of the year turned.</p>
-
-<h4>Important Transition dates</h4>
-
-<ol>
-  <li>Yestarë ('First Day'): First day of the loa, and the day before Spring (Tuilë).</li>
-  <li>Lairë 1st</li>
-  <li>Yavië 1st</li>
-  <li>The 3 Enderi (said to be days of festival); after these, then Quellë begins</li>
-  <li>Hrivë 1st</li>
-  <li>Coirë 1st</li>
-</ol>
-
-<p>(I did not include Mettarë because it is the day just before Yestarë, and thus is the equivalent of "New Year's Eve". It is important as a holiday, but not as a seasonal transition in itself.)</p>
-
-<p>But how do we relate these dates to the solar year as we know it?<br />
-When does the loa start, and why?</p>
-
-<p>According to Appendix 'D' of The Lord of the Rings,</p>
-<blockquote class="normal-size">
-  <p>
-    (...) the loa began with 'yestarë', the day immediately before Tuilë (Spring) and ended with 'mettarë', the day immediately after Coirë (Stirring).  Between Yavië and Quellë were inserted three enderi or 'middle-days'. This provided a year of 365 days which was supplemented by doubling the enderi (adding 3 days) in every twelfth year.
-  </p>
-  <p>
-    How any resulting inaccuracy was dealt with is uncertain.  If the year was then of the same length as now, the yén (a period equaling 144 years) would have been more than a day too long.  That there was an inaccuracy is shown by a note in the Calendars of the Red book to the effect that in the 'Reckoning of Rivendell' the last year of every third yén was shortened by three days: the doubling of the three enderi due in that year was omitted ; 'but that has not happened in our time'. Of the adjustment of any remaining inaccuracy there is no record.
-  </p>
-</blockquote>
-
-<p>But at exactly what point in the solar year did the loa begin?</p>
-
-<p>This is a complex question.  Let us look at the evidence:
-  <ol>
-   <li>We know from linguistic evidence that the year began sometime in what we would call Spring.</li>
-   <li>We also know from Appendix 'D' that the date given for Yestarë is "Shire April 6th". However, it is very important to note that this correspondence is to the Shire version of April 6th, not April 6th on our modern (Gregorian) calendar.</li>
-   <li>Additionally, we know from Appendix 'D' that, "Mid-year's Day [in the Shire calendar] was intended to correspond as nearly as possible to the summer solstice. In that case the Shire dates were actually in advance of ours by some ten days, and our New Year's Day corresponded more or less to the Shire January 9".</li>
- </ol>
-</p>
-
-<p>So, how to solve this puzzle?</p>
-
-<p class="text-danger">
-  In the next paragraph, the author develops further with the help of a javascript calculator found in the "Encyclopedia of Arda" website. I edited the following text so we stick to the logic.
-</p>
-
-<p>Shire April 6th (6 Astron) is equivalent to the beginning of the Elven year (loa); which corresponds to our March 28th. Taking into account fact #3 above, and applying the offset to the dates.</p>
-
-<p>The question immediately arises: Why would the Quendi begin their solar year approximately a week after the vernal equinox, and not directly on the equinox itself? The explanation, I think, is that the loa was not strictly a rule based calendar, but neither was it precisely a lunisolar calendar, but something of a combination of both – with a strong stellar-calibration component.  As we know, 'Summer' and 'Winter' each had 72 days, and the remaining seasons 54 each.  It is significant that each of these numbers is evenly divisible by 6, as the Quendi used a six day 'week', which they called an enquië.</p>
-
-<p>Additionally, we know (from linguistic evidence associated with the Lost Tales), that both the Summer and Winter solstices were celebrated. Given these facts, we now look for evidence that the Quendi used some sort of astronomical calibration for their calendar, much like the ancient builders of Stonehenge were said to do, or the ancient Mayans.</p>
-<p>Whatever the astronomical event was, it must have been something fairly obvious that could be noted and acted upon by a population that was at least semi-nomadic (references to Elvish "wandering" — to say nothing of the Great Journey — are scattered throughout the whole Legendarium).  This would seem to rule out large edifices such as Stonehenge or pyramidal constructions for the population as a whole, though it is certain that the Noldor, in particular, attained and surpassed such technology.</p>
-<p>Using either of the solstices as a calibration point doesn't seem to fit; as each solstice would occur 5 enquier after the start (or 7 enquier before the end) of 'Summer' or 'Winter', respectively. This doesn't seem to make sense given the fact that both 'Summer' and 'Winter' contained 12 enquier, and thus are evenly divisible into two halves of 6 enquier each. And, since the seasons are of unequal length and none fall upon an equinoctial boundary, the equinoxes don't seem to be likely points either.</p>
-
-<p>What's left?</p>
-
-<p>Surprisingly (and serendipitously) I discovered that the Pleiades, called the Remmirath ('Netted Stars') by the Elves, appears overhead (culminates) at midnight on November 21st – the beginning of Hrivë (Winter). In addition, they rise with the Sun at the beginning of Lairë (Summer), which admittedly cannot be seen directly – were it not for the fact that another constellation, which we know as Corona Borealis, culminates at midnight at the beginning of Lairë, as it lies exactly opposite the Pleiades in the sky.</p>
-<p>Both of these events are explained more fully in the The Pawnee Star Calendar. Thus, using the date of November 21st on the Gregorian Calendar as a calibration date, and applying the length of the seasons forward and around from this date, we arrive at exactly the points determined by calculation using the Encyclopedia of Arda's calendar.</p>
-
-<p>I should also mention here that the stellar configuration at the end of Varda's labors in Chapter 3 of the Silmarillion matches what is seen at midnight, November 21st.</p>
-
-<p>"Of the Coming of the Elves" describes Varda's labours and the resulting sky:</p>
-
-<blockquote class="normal-size">
-  <p>
-    Then Varda went forth from the council, and she looked out from the height of Taniquetil, and beheld the darkness of Middle-earth beneath the innumerable stars, faint and far. Then she began a great labour, greatest of all the works of the Valar since their coming into Arda. She took the silver dews from the vats of Telperion, and therewith she made new stars and brighter against the coming of the Firstborn; wherefore she whose name out of the deeps of time and the labours of Eä was Tintallë, the Kindler, was called after by the Elves Elentári, Queen of the Stars. Carnil [Mars] and Luinil [Vega*], Nénar [Capella*] and Lumbar [Saturn], Alcarinquë [Jupiter] and Elemmírë [Mercury] she wrought in that time, and many other of the ancient stars she gathered together and set as signs in the heavens of Arda: Wilwarin [Cassiopeia], Telumendil [Gemini?], Soronúmë [Lyra*], and Anarríma [Leo*]; and Menelmacar [Orion] with his shining belt, that forebodes the Last Battle that shall be at the end of days. And high in the north as a challenge to Melkor she set the crown of seven mighty stars to swing, Valacirca, the Sickle of the Valar and sign of doom [Ursa Major—The Big Dipper].
-  </p>
-  <p>
-    It is told that even as Varda ended her labours, and they were long, when first Menelmacar [Orion] strode up the sky and the blue fire of Helluin [Sirius] flickered in the mists above the borders of the world, in that hour the Children of the Earth awoke, the Firstborn of Ilúvatar. By the starlit mere of Cuiviénen, Water of Awakening, they rose from the sleep of Ilúvatar; and while they dwelt yet silent by Cuiviénen their eyes beheld first of all things the stars of heaven. Therefore they have ever loved the starlight, and have revered Varda Elentári above all the Valar.
-  </p>
-</blockquote>
-</p>
-<p>
-© 2005,2007 by Dave Woosley, All rights reserved
-</p>
-<hr />
-
-<p class="text-danger">
-  The following text is available in the following address: <a href="http://www.elvish.org/gwaith/calendars.htm" target="_blank">http://www.elvish.org/gwaith/calendars.htm</a>. It is attributed to Elenhil Laiquendo.
-</p>
-
-<hr />
-
-<h3>The Calendar of Imladris and its adaptation for Gregorian reckoning</h3>
-
-<p>A short note about E.c.: as Samwise remarked, the Elves who had more time at their disposal reckoned it in longer periods. An elven 'year' – yén – actually means 144 of our years, so we better call it a century. But they also observed a 'normal' solar year – coranar or loa – of 365 days, Such a year they divided into six seasons – four of 54 and two (the second and the fifth ones) of 72 days. See Appendix D for the details. They had five days outside the months, just as the Hobbits did (but the latter did not invent them, of course), once in twelve years three days in the middle of the year – enderi – were doubled. In the last year of every third yén such doubling did not occur. One yén consisted of 52596 days. For the convenience I will use year numbers in the Gregorian reckoning (though an elven year starts approximately three months later). And remember that yestarë is the first day of the year, and with it shifts the whole year (and all the following years, until another leap-year happens – in G.c. or in E.c.).</p>
-
-<p class="text-danger">
-  I'd like to stress the third yén omitting of the enderi. This played a major part in my code logic.
-</p>
-
-<p>In Appendix D Tolkien wrote that the Elves' New Year falls on the sixth day of Astron. Now we can easily get the corresponding date in the Gregorian calendar – it is March 29. But, as you know, that is a date for non-leap years.</p>
-
-<p class="text-danger">
-  This is controversial. The date for the beginning of the loa fluctuates due to previous leap periods and secular shifts. I assumed, however, that 29th of March is the first Gregorian equivalent day for the first day of the reckoning in my code.
-</p>
-
-<p>In nowadays more and more of those who associate themselves with the Elves want to reckon the time in their way. But all of them came across one logical obstacle: we have no starting point. In his letter 211 Tolkien wrote about how long time ago did Barad-dûr fell: <em>"I imagine the gap to be about 6000 years: that is we are now at the end of the Fifth Age, if the Ages were of about the same length as S.A. and T.A. But they have, I think, quickened; and I imagine we are actually at the end of the Sixth Age, or in the Seventh".</em> So it is the Seventh Age, all right.</p>
-
-<p>But the problem is deeper – from when we are to calculate leap circles. Because of the difference between leap circles in E.c. and G.c. these calendars periodically shift from one to three days relatively to each other. So for accurate calculation we must determine when did the Seventh Age actually began.</p>
-
-<p>Here only the common sense can help us. We know that each Age began and ended with events of global scale which importance for the whole Middle-earth deserved starting reckoning a brand new Age. Such events were the First Sunrise, the Fall of Morgoth, and the Fall of Sauron etc. Alas, we do not know for certain what did Tolkien thought about the Seventh Age, but I will proceed from the assumption that such an even can only be the Birth of Christ.</p>
-
-<p>Tolkien was a Roman catholic, and the meaning of Christmas for him cannot be overestimated. I am sure too that there will be no event of greater importance "tenn' Ambar-metta" and it deserves to call the Ages before it "the Elder Days". I am sure that Tolkien would agree.</p>
-
-<p class="text-danger">
-  As an atheist, I must protest. There is no relation whatsoever between the calendar reckoning and Christmas. Also, the "birth of Christ" is obviously not a good reference, since it could be off by seven years in the best of our guess. This matter is taken into details in this site:<br />
-  <a href="http://www.bibleinterp.com/opeds/why_3530.shtml" target="_blank">http://www.bibleinterp.com/opeds/why_3530.shtml</a>.
-</p>
-<p class="text-danger">
-  However, I think the author has a valid point in the sense that Tolkien was a catholic and it would make sense to use the catholic reckoning. So I guess it makes sense to calculate the Gregorian year 1 and start from the first March equinox of that year. Any necessity of referencing to periods before this point or after this point can be addressed by using "BCE" and "CE" rather than "BC" and "AD".
-</p>
-
-<p>Anyway, alternative events like the end of WWII and Tolkien's birthday are no good at all.</p>
-
-<p>So let's assume that the Seventh Age began 2000 years ago. That is approximately 52596*13 - 4*3 = 657432 days, where 52596 is the number of days in one yén, 13 is the number of yéni passed since 1 A.D., 3 is the number of enderi rejected from the last year of every third yén, 4 is the number of such years since 1 A.D.</p>
-
-<p>In the Gregorian calendar this gives approximately January 8 of 1873: 36524*18 + (365*72 + 17) + 8 = 657432 days, where 36524 is the number of days in one Gregorian year, 17 is the number of bissextile days added in 72 Gregorian leap-years since 1 A.D.</p>
-
-<p>Remember that our task an this stage was to determine current yén, so accuracy may be disregarded (to a certain extent): do not consider the fact that 1700 and 1800 were non-leap years, Earth axis' displacement, certain inaccuracy of the Elven calendar, relying entirely on the Gregorian calendar's sufficient accuracy. So, 13 yéni have passed and now we're in the 14th yén!</p>
-<div class="table-responsive">
-<table class="table table-hover table-condensed">
-  <tbody>
-    <tr class="text-center">
-      <td class="text-right">Greg. years:</td>
-      <td>1</td>
-      <td>145</td>
-      <td>289</td>
-      <td>433</td>
-      <td>577</td>
-      <td>721</td>
-      <td>865</td>
-      <td>1009</td>
-      <td>1153</td>
-      <td>1297</td>
-      <td>1441</td>
-      <td>1585</td>
-      <td>1729</td>
-      <td>1873</td>
-      <td>2004</td>
-    </tr>
-    <tr class="text-center">
-      <td class="text-right">Elven yéni:</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-      <td>7</td>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-      <td>12</td>
-      <td>13</td>
-      <td>14</td>
-      <td>15</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<p>Now without much wisdom we can calculate that 128 years have passed since 1873. So now we're in the 129th loa of the 14th yén.</p>
-
-<p>Since the first yén began on March 29 of year 1 A.D., the 14th yén began on March 29 of year 1873. This can be calculated with great accuracy: century length is equal in both calendars, in G.c. 10 days were omitted (from October 5 to October 14) in 1582 and February 29 was not added in 1700 and 1800, in total giving 12 days; in E.c. enderi were not doubled four times (in the last year of every third yén), in total giving 12 days too. It means that at the beginning of the 14th yén these two calendars (and their leap circles – at that moment) were perfectly synchronised.</p>
-
-<p class="text-danger">
-  Without much wisdom indeed, for these 10 omitted days in 1582 were fixing inaccuracies in the Julian calendar, so they were not counted in the previous centuries! This fact doesn't mean these days didn't exist in the first place. Likewise, the omitted leap days are expected to be omitted. Anyway, the author is trying to root for a more recent date to make it easier to calculate the current date. The logic I use is different: I count from the very first day in this "age".
-</p>
-
-<p>1876 was a leap year in the Gregorian calendar, it means that February 29 was added. It means that G.c. outrunned E.c. for one day. So yestarë retarded from March 29 for one day. One more day was added in 1880 – and yestarë became two days behind. In 1884 this shift was increased for one more day, thus archieving three days. But already in 1885 (loa 12) elven leap circle was accomplished adding three more days in the middle of loa, so in 1886 (loa 13) E.c. made up for lost time, catching up with G.c. so that yestarë fell on March 29 again.*</p>
+        <p>
+          In order to make the algorithm for the calculation of the elven date, I first got inspiration from two texts from the Internet. I do not completely agree with them, but they served as a very important basis for the whole logic.
+        </p>
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>The Quendian Calendar and the Six Seasons</h2>
+            <p>
+              Here is a very interesting text taken from the iOS application "ElvenSpeak" and the apparent author is Dave Woosley. The author tries to find something to justify the aparent complexity of the elven calendar and find a way to apply it in a real-world setup. I am glad to reckon he managed to do so.
+            </p>
+            <p><a class="btn btn-primary" href="referenceText1.html" role="button">Read »</a></p>
+          </div>
+          <div class="col-lg-6">
+            <h2>Adaptation from the Gregorian reckoning</h2>
+            <p>
+              The second text is attributed to Elenhil Laiquendo. Here the author tries to fill the gap left by a missing start point of the elvish calendar and uses the Gregorian calendar as a basis. Apart from a few differences to my approach, his solution is pretty much effective and logic.
+            </p>
+            <p><a class="btn btn-primary" href="referenceText2.html" role="button">Read »</a></p>
+          </div>
+        </div>
 
       </div>
     </div>

@@ -63,19 +63,19 @@ function Calendar() {
          *
          * Period     = Yeni cycle, just for readability
          */
-        var leapDays          = 3,   // leap days every loa
-            leapSpace         = 12,  // leap period (12 loar)
-            cyclesWithinYen   = 12,  // loar cycles in an yen
-            yeniCycle         = 3,   // yeni no-leap cycle
-            daysLoaNormal     = 365, // loa normal
-            daysLoaLeap       =   daysLoaNormal + leapDays,  // loa leap         = 368d
-            daysCycleNoLeap   =   daysLoaNormal * leapSpace, // cycle no leap    = 4380d
-            daysCycleNormal   = daysCycleNoLeap + leapDays,  // cycle normal     = 4383d
-            daysYenNormal     = daysCycleNormal * cyclesWithinYen, // normal yen = 13149d
-            daysYenNoLeap     = daysCycleNormal * (cyclesWithinYen - 1) + daysCycleNoLeap, // 3rd yen = 13146d
-            daysPeriod        = daysYenNormal * 2 + daysYenNoLeap, // period = 3 yeni = 39444d
-            firstDayOfLeapLoa = daysCycleNormal - daysLoaLeap,     // leap loa first day in cycle
-            offset            = 31 + 28 + 28; // offset from gregorian calendar
+        var leapDays          = 3;   // leap days every loa
+        var leapSpace         = 12;  // leap period (12 loar)
+        var cyclesWithinYen   = 12;  // loar cycles in an yen
+        var yeniCycle         = 3;   // yeni no-leap cycle
+        var daysLoaNormal     = 365; // loa normal
+        var daysLoaLeap       =   daysLoaNormal + leapDays;  // loa leap         = 368d
+        var daysCycleNoLeap   =   daysLoaNormal * leapSpace; // cycle no leap    = 4380d
+        var daysCycleNormal   = daysCycleNoLeap + leapDays;  // cycle normal     = 4383d
+        var daysYenNormal     = daysCycleNormal * cyclesWithinYen; // normal yen = 13149d
+        var daysYenNoLeap     = daysCycleNormal * (cyclesWithinYen - 1) + daysCycleNoLeap; // 3rd yen = 13146d
+        var daysPeriod        = daysYenNormal * 2 + daysYenNoLeap; // period = 3 yeni = 39444d
+        var firstDayOfLeapLoa = daysCycleNormal - daysLoaLeap;     // leap loa first day in cycle
+        var offset            = 31 + 28 + 28; // offset from gregorian calendar
 
         var date          = gregorianAbsoluteDay - offset; // date
         var period        = Math.ceil(date/daysPeriod);    // period

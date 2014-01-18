@@ -120,34 +120,49 @@
           <h1>How is the date calculated</h1>
         </div>
 
-        <h3>Introduction</h3>
+        <h2>Introduction</h2>
         <p>
-          In order to make the algorithm for the calculation of the elven date, I first got inspiration from two texts from the Internet which you can read with comments here. I do not completely agree with them, but they served as a very important basis for the whole logic.
+          In order to make the algorithm for the calculation of the elven date, I first got inspiration from <a href="references.html">two texts from the Internet which you can read with comments here</a>. I do not completely agree with them, but some key parts in these texts served as a very important basis for the whole logic.
         </p>
         <p>
-          Assuming the reader is already familiar with the way these calendars work, by either reading Tolkien material or the texts provided here, I want to further discuss the logic used in this project.
+          This page intends to serve as a reference for the logic used by the algorithms in this project. I assume the reader is already familiar with the way these calendars work, by either reading Tolkien material or the texts provided here. The content of this page is somewhat technical and I try to translate the logic into mathematical reasoning.
         </p>
 
-        <h3>Rules</h3>
+        <h2>Calculating the date</h2>
+
+        <h3>Terminology</h3>
+        <p>
+          It is important to review quickly the terminology used in this project.
+        </p>
+
+        <ul>
+          <li>One solar year in quenya is called "loa", plural "loar";</li>
+          <li>One elven "year" is actually equivalent to an average of 144 years, and is called, in quenya, "yén", plural "yéni";</li>
+          <li>There an equivalent notion to bissextile year in the elven reckoning that occurs every 12 years, but since the term "bissextile" sounds out of context, I call it a "leap loa" instead;</li>
+          <li>Sometimes, in this project, a period of time is expected to contain <em>leap days</em> within by default. If an exception arise, I use the term "no leap" or "non leap" to differentiate from the original concept;</li>
+          <li>All elvish terms are used in quenya language.</li>
+        </ul>
+
+        <h3>Calendar's rules</h3>
         <p>A few rules are taken from the material available:</p>
 
         <ol>
           <li>One "normal" loa has 365 days</li>
-          <li>One leap loa has 368 days</li>
+          <li>One leap loa has 368 days, given that 365 are the normal days and 3 are leap days</li>
           <li>The loa is leap every 12 loar</li>
           <li>144 loar result in 1 yén</li>
-          <li>The last loa of every 3rd yén is not a leap loa</li>
+          <li>The last loa of every 3rd yén is <strong>not</strong> a leap loa</li>
         </ol>
 
         <h3>Assumptions</h3>
 
-        <p>A few assumptions also take place:</p>
+        <p>A few assumptions also must take place:</p>
 
         <ol>
           <li>The reckoning must start as closest as possible with the Gregorian calendar</li>
           <li>The first day of winter must match the 21st of November of the year 1</li>
           <li>The offset of the last rule must be applied, pushing the first day of the first loa to 29th of March, year 1</li>
-          <li>No other adjustements other than the ones expected in the rules above must be made</li>
+          <li>No other adjustments other than the ones expected in the rules above must be made</li>
         </ol>
 
         <h3>Method of calculation</h3>
@@ -155,14 +170,14 @@
         <p>The current time will be calculated in the following manner:</p>
 
         <ol>
-          <li>The 1st of January of the year 1 (gregorian day 1) will be calculated using the Gregorian calendar (it is assumed that any innacuracies were dealt with in this reckoning)</li>
-          <li>The current date is the sum of all days since gregorian day 1 minus the offset of the first year/loa (day 1)</li>
+          <li>The 1st of January of the year 1 (Gregorian day 1) will be calculated using the Gregorian calendar (it is assumed that any innacuracies were dealt with in this reckoning)</li>
+          <li>The current date is the sum of all days since Gregorian day 1 minus the offset of the first year/loa (day 1)</li>
           <li>All loar will be grouped in clusters of 12, designated "leap cycle" or, for short, "cycle"</li>
           <li>All yéni will be the result of a cluster of 12 cycles</li>
-          <li>All yéni will be grouped in clusters of 3 designated "yeni group period", or, for short, "period", in which there will be 3 days removed to follow rule #5</li>
+          <li>All yéni will be grouped in clusters of 3 designated "yéni group period", or, for short, "period", in which there will be 3 days removed to follow rule #5</li>
         </ol>
 
-        <h3>Values</h3>
+        <h3>Constant values</h3>
 
         <p>From this point, we can calculate a few constant values to be used in the whole logic:</p>
 
@@ -178,16 +193,26 @@
         </dl>
 
         <h3>Absolute date</h3>
-
-        <p>Before assembling the elven calendar, we must count how many days passed since the beginning of the Gregorian reckoning.</p>
-        <p>Assuming the Gregorian reckoning fixes the Julian calendar deficiencies and the year 1 of this counting is in effect the first year of the common era, we sum up all days passed since the beginning of the reckoning until the last day of the previous year. Then we calculate how many days passed in the current gregorian year.</p>
-        <p>To count the days passed in the current year we can use this equation:</p>
+        <p>
+          Before assembling the elven calendar, we must count how many days passed since the beginning of the Gregorian reckoning.
+        </p>
+        <p>
+          Assuming the Gregorian reckoning fixes the Julian calendar deficiencies and the year 1 of this counting is in effect the first year of the common era, we sum up all days passed since the beginning of the reckoning until the last day of the previous year. Then we calculate how many days passed in the current Gregorian year.
+        </p>
+        <p>
+          To count a period of days (upper-case delta) passed from year 1 CE to last year, we must sum up all standard 365 days of every year with the leap days:
+        </p>
+        <p class="text-center">
+          <img src="./img/gregorianAbsoluteDay.svg" alt="DL = 365*(y-1)+floor((y-1)/4)-floor((y-1)/100)-floor((y-1)/400)+dl" />
+        </p>
+        <p>
+          And to count the days passed in the current year (lower-case delta) we can use this equation (<strong>y</strong> is the year, <strong>m</strong> is the month and <strong>d</strong> is the day of the month):
+        </p>
         <p class="text-center">
           <img src="./img/gregorianDayOfYear.svg" alt="dl = [floor(30.6*(m+9)%12)+58.5+d]%365" />
         </p>
-        <p>To count the days passed since year 1, we can use this:</p>
-        <p class="text-center">
-          <img src="./img/gregorianAbsoluteDay.png" alt="DL = 365*(y-1)+floor((y-1)/4)-floor((y-1)/100)-floor((y-1)/400)+dl" />
+        <p>
+          As the reader may notice, the last equation won't work for leap years, in which we must apply an adjustment of one extra day if the date follows the 29th of February.
         </p>
 
       </div>
