@@ -1,0 +1,28 @@
+/* Fonts
+-------------------------------------------------- */
+
+.tengwar-regular {
+    font-family: 'TengwarAnnatarRegular';
+}
+.tengwar-bold {
+    font-family: 'TengwarAnnatarBold';
+}
+.tengwar-italic {
+    font-family: 'TengwarAnnatarItalic';
+}
+.tengwar-bold-italic {
+    font-family: 'TengwarAnnatarBoldItalic';
+}
+
+/* Sizes
+-------------------------------------------------- */
+
+.tengwar-large {
+	font-size: 2em;
+}
+
+
+.normal-size,
+.normal-size p {
+	font-size: 14px;
+}

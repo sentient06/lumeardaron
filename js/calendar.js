@@ -14,22 +14,36 @@ function Calendar() {
      * @returns {string}
      */
     _this.translateNumber = function(decNumber) {
+        if (decNumber === "10") {
+            return ".";
+        }
         var duodecimalNumber = decNumber.toString(12);
-        // var tengwarDuodecimal = ["ðÊ", "ñÊ", "òO", "ó(", "ô L","õ(", "öO", "÷O", "øÊ", "ùÈ", "úÊ", "ûÊ", ".Ê"];
-        // var tengwarDuodecimal = ["ð", "ñ", "ò", "ó", "ô","õ", "ö", "÷", "ø", "ù", "ú", "û", "."]; //ñ©ñ˜ñ™ñ¨
-        //                        0     1     2     3     4     5     6     7     8     9     A     B
-        var tengwarDuodecimal = ["ð¨", "ñ¨", "ò™", "ó˜", "ô¨", "õ™", "ö¨", "÷¨", "ø¨", "ù™", "ú¨", "û¨", "."];
+        // var tengwarDuodecimal = [
+        //     "\u00F0\u00A8" // 0 - ð¨
+        //   , "\u00F1\u00A8" // 1 - ñ¨
+        //   , "\u00F2\u2122" // 2 - ò™
+        //   , "\u00F3\u02DC" // 3 - ó˜
+        //   , "\u00F4\u00A8" // 4 - ô¨
+        //   , "\u00F5\u2122" // 5 - õ™
+        //   , "\u00F6\u00A8" // 6 - ö¨
+        //   , "\u00F7\u00A8" // 7 - ÷¨
+        //   , "\u00F8\u00A8" // 8 - ø¨
+        //   , "\u00F9\u2122" // 9 - ù™
+        //   , "\u00FA\u00A8" // A - ú¨
+        //   , "\u00FB\u00A8" // B - û¨
+        //   , "." // 10 - .
+        // ];
+        var chars = ["\u00F0\u00A8","\u00F1\u00A8","\u00F2\u2122","\u00F3\u02DC","\u00F4\u00A8","\u00F5\u2122",
+                     "\u00F6\u00A8","\u00F7\u00A8","\u00F8\u00A8","\u00F9\u2122","\u00FA\u00A8","\u00FB\u00A8"];
         var formattedNumber = "";
-        var digit = null;
         for (var i = duodecimalNumber.length - 1; i >= 0; i--) {
             if (duodecimalNumber[i] === 'a') {
-                digit = '10';
+                formattedNumber += chars[10];
             } else if (duodecimalNumber[i] === 'b') {
-                digit = '11';
+                formattedNumber += chars[11];
             } else {
-                digit = duodecimalNumber[i];
+                formattedNumber += chars[parseInt(duodecimalNumber[i], 10)];
             }
-            formattedNumber += tengwarDuodecimal[parseInt(digit, 10)];
         }
         return formattedNumber;
     };
@@ -97,8 +111,6 @@ function Calendar() {
 
         if (thirdYen && lastLoaOfYen) { leapLoa = false; }
 
-        var loaDuration   = leapLoa ? daysLoaLeap : daysLoaNormal; // loa duration
-            loaDuration   = lastLoaOfYen ? daysLoaNormal : loaDuration;
         var LoaSUM        = Math.floor(dayOfCycle / daysLoaNormal); // LSUM
 
         if (twelfthLoa) {
@@ -112,12 +124,12 @@ function Calendar() {
         // Last loa day:
         if (dayOfCycle - firstDayOfLoa === 0) {
             firstDayOfLoa = (LoaSUM - 1) * daysLoaNormal;
-            LoaSUM -= 1;
+            // LoaSUM -= 1;
         }
 
         var day = dayOfCycle - firstDayOfLoa;
 
-        var values = {
+        return {
                'period':period,
             'yeniCycle':yeniCycle,
                   'yen':yen,
@@ -127,7 +139,82 @@ function Calendar() {
                   'day':day
         };
 
-        return values;
+    };
+
+    _this.assembleNumenoreanCalendar = function(gregorianAbsoluteDay) {
+
+        /*
+         * Loa        = 365 days
+         * Leap loa   = 368 days
+         * Leap Space = 1 leap loa every 12 loas
+         *
+         * Loar cycle = 12 loar (11 normal, 1 leap)
+         * Yen        = 12 cycles, or 144 loar (12 leap loar)
+         * Yeni cyle  =  3 yeni, the last loa in the 3rd yen is not leap!
+         *
+         * Period     = Yeni cycle, just for readability
+         */
+        var leapDays          = 3;   // leap days every loa
+        var leapSpace         = 12;  // leap period (12 loar)
+        var cyclesWithinYen   = 12;  // loar cycles in an yen
+        var yeniCycle         = 3;   // yeni no-leap cycle
+        var daysLoaNormal     = 365; // loa normal
+        var daysLoaLeap       =   daysLoaNormal + leapDays;  // loa leap         = 368d
+        var daysCycleNoLeap   =   daysLoaNormal * leapSpace; // cycle no leap    = 4380d
+        var daysCycleNormal   = daysCycleNoLeap + leapDays;  // cycle normal     = 4383d
+        var daysYenNormal     = daysCycleNormal * cyclesWithinYen; // normal yen = 13149d
+        var daysYenNoLeap     = daysCycleNormal * (cyclesWithinYen - 1) + daysCycleNoLeap; // 3rd yen = 13146d
+        var daysPeriod        = daysYenNormal * 2 + daysYenNoLeap; // period = 3 yeni = 39444d
+        var firstDayOfLeapLoa = daysCycleNormal - daysLoaLeap;     // leap loa first day in cycle
+        var offset            = 31 + 28 + 28; // offset from gregorian calendar
+
+        var date          = gregorianAbsoluteDay - offset; // date
+        var period        = Math.ceil(date/daysPeriod);    // period
+        var PeriodSUM     = (period - 1) * daysPeriod;     // PSUM
+        var yen           = Math.ceil((date - PeriodSUM) / daysYenNormal); // yen
+        var thirdYen      = yen % 3 === 0; // 3rd yen
+        var YenSUM        = ((yen - 1) * daysYenNormal) + PeriodSUM;       // YSUM
+        var cycle         = Math.ceil((date - YenSUM) / daysCycleNormal);  // cycle
+        var twelfthCycle  = cycle === 12;  // 12th cycle
+        var CycleSUM      = ((cycle - 1) * daysCycleNormal) + YenSUM; // CSUM
+        var dayOfCycle    = date - CycleSUM; // cycle's day
+        var leapLoa       = dayOfCycle > firstDayOfLeapLoa; // leap loa
+        var loa           = Math.ceil( (date - CycleSUM) / daysLoaNormal ); //loaDuration to daysLoaNormal  // loa
+
+        if (loa === 13) { loa = 12; } // extra days of loa: 366 367 368
+
+        var twelfthLoa    = loa === 12; // 12th loa
+        var lastLoaOfYen  = (twelfthCycle && twelfthLoa); // 144th loa
+
+        if (thirdYen && lastLoaOfYen) { leapLoa = false; }
+
+        var LoaSUM        = Math.floor(dayOfCycle / daysLoaNormal); // LSUM
+
+        if (twelfthLoa) {
+            if (LoaSUM > 11) {
+                LoaSUM = 11;
+            }
+        }
+
+        var firstDayOfLoa = LoaSUM * daysLoaNormal; // first day of loa //this is not recognising first days of leap loa
+
+        // Last loa day:
+        if (dayOfCycle - firstDayOfLoa === 0) {
+            firstDayOfLoa = (LoaSUM - 1) * daysLoaNormal;
+            // LoaSUM -= 1;
+        }
+
+        var day = dayOfCycle - firstDayOfLoa;
+
+        return {
+               'period':period,
+            'yeniCycle':yeniCycle,
+                  'yen':yen,
+                'cycle':cycle,
+              'leapLoa':leapLoa,
+                  'loa':loa,
+                  'day':day
+        };
 
     };
 
