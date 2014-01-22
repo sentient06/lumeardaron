@@ -7,7 +7,7 @@ doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
-    var shireCalendar        = calendar.assembleShireCalendar(gregorianAbsoluteDay);
+    var shireCalendar        = calendar.assembleNumenoreanCalendar(gregorianAbsoluteDay);
     var months               = [1, 30, 30, 30, 30, 30, 30, 1, 1];
     var monthsEnglishNormal  = [
         '2 Yule',

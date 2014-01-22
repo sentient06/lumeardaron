@@ -7,80 +7,85 @@ doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
-    var elvishCalendar       = calendar.assembleElvishCalendar(gregorianAbsoluteDay);
-    var seasons              = [1, 54, 72, 54, 1, 1, 1];
-    var seasonSindarinNormal = ['Orerui',
-        'Etuil',
-        'Laer',
-        'Iavas',
-        'Orenidh 1',
-        'Orenidh 2',
-        'Orenidh 3'
+    var gondorCalendar       = calendar.assembleNumenoreanCalendar(gregorianAbsoluteDay);
+    var months               = [1, 30, 30, 30, 30, 30, 31];
+    var monthsSindarinNormal = [
+        'Minien',
+        'Narwain',
+        'Nínui',
+        'Gwaeron',
+        'Gwirith',
+        'Lothron',
+        'Nórui'
     ];
-    var seasonSindarinTengwar = ['7H7FhG', // Orerui
-        '1FhGj',  // Etuil
-        'jlD6',   // Laer
-        'lr#iD ', // Iavas
-        '7H5$4% ñ', // Orenidh 1
-        '7H5$4% ò', // 2
-        '7H5$4% ó'
+    var monthsSindarinTengwar = [
+        't5%`B5$', // Minien //Maybe the "ie" should be simply "y"
+        '56EyhE5', // Narwain
+        '5~B5hJ',  // Nínui
+        'sèlE75Y', // Gwaeron
+        'sè7T3G',  // Gwirith
+        'j3H75Y',  // Lothron
+        '5~N7hJ'   // Nóru
     ];
-    if (elvishCalendar.leapLoa) {
-        seasons.push(1, 1, 1);
-        seasonSindarinNormal.push('Orenidh 4', 'Orenidh 5', 'Orenidh 6');
-        seasonSindarinTengwar.push('7H5$4% ô', '7H5$4% õ', '7H5$4% ö');
+    if (gondorCalendar.leapLoa) {
+        months.push(1);
+        monthsSindarinNormal.push('Endien');
+        monthsSindarinTengwar.push('2$`B5$');
     }
-    seasons.push(54, 72, 54, 1);
-    seasonSindarinNormal.push(
-        'Firith',
-        'Rhiw',
-        'Echuir',
-        'Orvedui'
+    months.push(31, 30, 30, 30, 30, 30, 1);
+    monthsSindarinNormal.push(
+        'Cerveth',
+        'Urui',
+        'Ivanneth',
+        'Narbeleth',
+        'Hithui',
+        'Girithron',
+        'Penninor'
     );
-    seasonSindarinTengwar.push(
-        'e7G3G',
-        'uyG',
-        'cRhG6',
-        '6Hr2$hG'
+    monthsSindarinTengwar.push(
+        'z6Fr3F',   // Cerveth
+        '7JhJ',     // Urui
+        'r%5:#3F',  // Ivanneth
+        '56EwjR3F', // Narbeleth
+        ';93GhJ',   // Hithui
+        'x7T3G75Y', // Girithron
+        'q5:$5%6H'  // Penninor
     );
-    var seasonCounter = 0;
+    var monthCounter = 0;
     var dayCounter    = 0;
 
-    while (seasonCounter < seasons.length) {
-        if (dayCounter + seasons[seasonCounter] >= elvishCalendar.day) {
+    while (monthCounter < months.length) {
+        if (dayCounter + months[monthCounter] >= gondorCalendar.day) {
             break;
         }
-        dayCounter += seasons[seasonCounter];
-        seasonCounter++;
+        dayCounter += months[monthCounter];
+        monthCounter++;
     }
 
-    var formattedYen = (elvishCalendar.period - 1) * elvishCalendar.yeniCycle + elvishCalendar.yen;
-    var formattedLoa = (elvishCalendar.cycle - 1) * 12 + elvishCalendar.loa;
-    var formattedDay = elvishCalendar.day - dayCounter;
-    var formattedSST = seasonSindarinTengwar[seasonCounter];
-    var formattedSSN = seasonSindarinNormal[seasonCounter];
+
+    var formattedYear = gondorCalendar.year;
+    var formattedDay  = gondorCalendar.day - dayCounter;
+    var formattedMST  = monthsSindarinTengwar[monthCounter];
+    var formattedMSN  = monthsSindarinNormal[monthCounter];
 
     var sindarinTengwarReadableDate = "";
     var sindarinNormalReadableDate  = "";
     var englishNormalReadableDate   = "";
 
-    if (seasons[seasonCounter] !== 1) {
+    if (months[monthCounter] !== 1) {
         sindarinTengwarReadableDate = calendar.translateNumber(formattedDay) + ' hJ5 ';
         sindarinNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' uin ';
         englishNormalReadableDate   = formattedDay + ' of ';
     }
 
-    sindarinTengwarReadableDate += formattedSST +
-                    ' hJ5 ' + calendar.translateNumber(formattedLoa) +
-                    ' hJ5 ' + calendar.translateNumber(formattedYen);
+    sindarinTengwarReadableDate += formattedMST +
+                    ' hJ5 ' + calendar.translateNumber(formattedYear);
 
-    sindarinNormalReadableDate  += formattedSSN +
-                    ' uin ' + formattedLoa.toString(12).toUpperCase() +
-                    ' uin ' + formattedYen.toString(12).toUpperCase();
+    sindarinNormalReadableDate  += formattedMSN +
+                    ' uin ' + formattedYear.toString(12).toUpperCase();
 
-    englishNormalReadableDate   += formattedSSN +
-                    ' of ' + formattedLoa +
-                    ' of ' + formattedYen;
+    englishNormalReadableDate   += formattedMSN +
+                    ' of ' + formattedYear;
 
     var sindarinTengwarReadable = document.createTextNode(sindarinTengwarReadableDate);
     document.getElementById("sindarinTengwar").appendChild(sindarinTengwarReadable);

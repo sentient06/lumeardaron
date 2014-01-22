@@ -145,9 +145,9 @@ function Calendar() {
     };
 
     /**
-     * Shire's reckoning
+     * King's and Shire's reckoning are the same
      */
-    _this.assembleShireCalendar = function(gregorianAbsoluteDay) {
+    _this.assembleNumenoreanCalendar = function(gregorianAbsoluteDay) {
         var leapDays           = 1;   // leap days every year
         var leapSpace          = 4;   // leap period (4 years)
         var cyclesWithin100    = 25;  // years cycles in a century
@@ -224,9 +224,9 @@ function Calendar() {
     };
 
     /**
-     * This is the King's reckoning.
+     * This is the Steward's reckoning.
      */
-    _this.assembleNumenoreanCalendar = function(gregorianAbsoluteDay) {
+    _this.assembleGondorCalendar = function(gregorianAbsoluteDay) {
 
         var leapDays           = 1;   // leap days every year
         var leapSpace          = 4;   // leap period (4 years)
