@@ -35,7 +35,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="./img/favicon.png">
-    <title>Lúmë Ardaron - The time of Arda- L&uacute;me Imberiss&euml;o</title>
+    <title>Lúmë Ardaron - The time of Arda- L&uacute; Imladris</title>
 
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='css/bootstrap.min.css'>
@@ -81,10 +81,10 @@
         <div class="collapse navbar-collapse">
           <p class="navbar-text">Reckoning:</p>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="rivendell-sindarin.html">Rivendell</a></li>
+            <li><a href="rivendell-sindarin.html">Rivendell</a></li>
             <!-- <li><a href="king-sindarin.html">The King's</a></li> -->
             <!-- <li><a href="steward-sindarin.html">The Steward's</a></li> -->
-            <li><a href="shire-english.html">Shire</a></li>
+            <li class='active'><a href="shire-english.html">Shire</a></li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">How it works <b class="caret"></b></a>
@@ -101,7 +101,6 @@
 
       <!-- Begin page content -->
       <div class="container">
-
         <script type="text/javascript">
             var today      = new Date();
             var todayDay   = today.getUTCDate();
@@ -109,7 +108,7 @@
             var todayYear  = today.getUTCFullYear();
         </script>
         <script src="./js/calendar.js"></script>
-        <script src="./js/rivendell-quenya.js"></script>
+        <script src="./js/shire-english.js"></script>
 
         <div class="page-header hidden-xs">
           <h1>Lúmë Ardaron - The time of Arda</h1>
@@ -119,17 +118,12 @@
           <div class="panel panel-default">
             <div class="panel-heading text-center">
               <div class="btn-group">
-                <a href="rivendell-sindarin.html" class="btn btn-default">Sindarin</a>
-                <a href="rivendell-quenya.html"   class="current btn btn-default active">Quenya</a>
-                <!-- <a href="rivendell-english.html"  class="btn btn-default">English</a> -->
+                <a href="shire-english.html"  class="current btn btn-default">English</a>
               </div>
             </div>
             <div class="panel-body text-center">
-              <h2 class="tengwar-bold">j~Mt$ `Bw$7G,F`N </h2> <!-- Heru Imberissëo -->
-              <h2>Date of Rivendell</h2>
+              <h2>Date of the Shire</h2>
               <hr />
-              <p id="quenyaTengwar" class="text-center lead tengwar-regular tengwar-large"></p>
-              <p id="quenyaNormal" class="text-center lead"></p>
               <p id="englishNormal" class="text-center lead"></p>
               <!-- <p><a class="btn btn-primary" role="button">Learn more</a></p> -->
             </div>
