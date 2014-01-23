@@ -25,7 +25,7 @@ doc.addEventListener('DOMContentLoaded', function() {
         'sèlE75Y', // Gwaeron
         'sè7T3G',  // Gwirith
         'j3H75Y',  // Lothron
-        '5~N7hJ'   // Nóru
+        '5~N7hJ'   // Nórui
     ];
     if (gondorCalendar.leapLoa) {
         months.push(1);

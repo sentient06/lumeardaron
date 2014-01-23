@@ -9,39 +9,41 @@ doc.addEventListener('DOMContentLoaded', function() {
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
     var elvishCalendar       = calendar.assembleElvishCalendar(gregorianAbsoluteDay);
     var seasons              = [1, 54, 72, 54, 1, 1, 1];
-    var seasonSindarinNormal = ['Orerui',
-        'Etuil',
+    var seasonSindarinNormal = [
+        'Minien', // 'Orerui', //Damn, where did this come from?
+        'Ethuil',
         'Laer',
         'Iavas',
-        'Orenidh 1',
-        'Orenidh 2',
-        'Orenidh 3'
+        'Endien 1', //'Orenidh 1',
+        'Endien 2', //'Orenidh 2',
+        'Endien 3'  //'Orenidh 3'
     ];
-    var seasonSindarinTengwar = ['7H7FhG', // Orerui
-        '1FhGj',  // Etuil
-        'jlD6',   // Laer
-        'lr#iD ', // Iavas
-        '7H5$4% ñ', // Orenidh 1
-        '7H5$4% ò', // 2
-        '7H5$4% ó'
+    var seasonSindarinTengwar = [
+        't5%`B5$',  //Maybe the "ie" should be simply "y" // '7H7FhG',   // Orerui
+        '3FhGj',    // Etuil
+        'jlD6',     // Laer
+        'lr#iD ',   // Iavas
+        '2$`B5$ ñ',// '7H5$4% ñ', // Orenidh 1
+        '2$`B5$ ò',// '7H5$4% ò', // 2
+        '2$`B5$ ó' // '7H5$4% ó'  // 3
     ];
     if (elvishCalendar.leapLoa) {
         seasons.push(1, 1, 1);
-        seasonSindarinNormal.push('Orenidh 4', 'Orenidh 5', 'Orenidh 6');
-        seasonSindarinTengwar.push('7H5$4% ô', '7H5$4% õ', '7H5$4% ö');
+        seasonSindarinNormal.push('Endien 4', 'Endien 5', 'Endien 6');// seasonSindarinNormal.push('Orenidh 4', 'Orenidh 5', 'Orenidh 6');
+        seasonSindarinTengwar.push('2$`B5$ ô', '2$`B5$ õ', '2$`B5$ ö');// seasonSindarinTengwar.push('7H5$4% ô', '7H5$4% õ', '7H5$4% ö');
     }
     seasons.push(54, 72, 54, 1);
     seasonSindarinNormal.push(
         'Firith',
-        'Rhiw',
+        'Rhîw',
         'Echuir',
-        'Orvedui'
+        'Penninor' // 'Orvedui'
     );
     seasonSindarinTengwar.push(
-        'e7G3G',
-        'uyG',
-        'cRhG6',
-        '6Hr2$hG'
+        'e7G3G',   // Firith
+        'u~By',    // Rhîw
+        'cRhG6',   // Echuir
+        'q5:$5%6H' // Penninor // '6Hr2$hG' // Orvedui
     );
     var seasonCounter = 0;
     var dayCounter    = 0;

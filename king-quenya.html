@@ -35,7 +35,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="./img/favicon.png">
-    <title>Lúmë Ardaron - The time of Arda - Date of the Shire</title>
+    <title>Lúmë Ardaron - The time of Arda- L&uacute;me Ondonóreo</title>
 
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='css/bootstrap.min.css'>
@@ -82,9 +82,9 @@
           <p class="navbar-text">Reckoning:</p>
           <ul class="nav navbar-nav">
             <li><a href="rivendell-sindarin.html">Rivendell</a></li>
-            <li><a href="king-sindarin.html">The King's</a></li>
+            <li class='active'><a href="king-sindarin.html">The King's</a></li>
             <!-- <li><a href="steward-sindarin.html">The Steward's</a></li> -->
-            <li class='active'><a href="shire-english.html">Shire</a></li>
+            <li><a href="shire-english.html">Shire</a></li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">How it works <b class="caret"></b></a>
@@ -108,7 +108,7 @@
             var todayYear  = today.getUTCFullYear();
         </script>
         <script src="./js/calendar.js"></script>
-        <script src="./js/shire-english.js"></script>
+        <script src="./js/king-sindarin.js"></script>
 
         <div class="page-header hidden-xs">
           <h1>Lúmë Ardaron - The time of Arda</h1>
@@ -118,12 +118,17 @@
           <div class="panel panel-default">
             <div class="panel-heading text-center">
               <div class="btn-group">
-                <a href="shire-english.html"  class="current btn btn-default">English</a>
+                <a href="king-sindarin.html" class="current btn btn-default">Sindarin</a>
+                <a href="king-quenya.html"   class="btn btn-default active">Quenya</a>
+                <!-- <a href="king-english.html"  class="btn btn-default">English</a> -->
               </div>
             </div>
             <div class="panel-body text-center">
-              <h2>Date of the Shire</h2>
+              <h2 class="tengwar-bold">j~Mt$ `N2H5~N7F`N</h2><!-- Ondonóre -->
+              <h2>Date of Gondor</h2>
               <hr />
+              <p id="sindarinTengwar" class="text-center lead tengwar-regular tengwar-large"></p>
+              <p id="sindarinNormal" class="text-center lead"></p>
               <p id="englishNormal" class="text-center lead"></p>
               <!-- <p><a class="btn btn-primary" role="button">Learn more</a></p> -->
             </div>

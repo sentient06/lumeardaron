@@ -86,13 +86,13 @@ function Calendar() {
         var yeniCycle         = 3;   // yeni no-leap cycle
         var daysLoaNormal     = 365; // loa normal
         var daysLoaLeap       =   daysLoaNormal + leapDays;  // loa leap         = 368d
-        var daysCycleNoLeap   =   daysLoaNormal * leapSpace; // cycle no leap    = 4380d
-        var daysCycleNormal   = daysCycleNoLeap + leapDays;  // cycle normal     = 4383d
-        var daysYenNormal     = daysCycleNormal * cyclesWithinYen; // normal yen = 13149d
-        var daysYenNoLeap     = daysCycleNormal * (cyclesWithinYen - 1) + daysCycleNoLeap; // 3rd yen = 13146d
-        var daysPeriod        = daysYenNormal * 2 + daysYenNoLeap; // period = 3 yeni = 39444d
-        var firstDayOfLeapLoa = daysCycleNormal - daysLoaLeap;     // leap loa first day in cycle
-        var offset            = 31 + 28 + 28; // offset from gregorian calendar
+        var daysCycleNoLeap   =   daysLoaNormal * leapSpace; // cycle no leap    = 4,380d
+        var daysCycleNormal   = daysCycleNoLeap + leapDays;  // cycle normal     = 4,383d
+        var daysYenNormal     = daysCycleNormal * cyclesWithinYen; // normal yen = 52,596d
+        var daysYenNoLeap     = daysCycleNormal * (cyclesWithinYen - 1) + daysCycleNoLeap; // 3rd yen = 52,593d
+        var daysPeriod        = daysYenNormal * 2 + daysYenNoLeap; // period = 3 yeni = 157,785d
+        var firstDayOfLeapLoa = daysCycleNormal - daysLoaLeap;     // leap loa first day in cycle = 4015
+        var offset            = 31 + 28 + 28; // offset from gregorian calendar = 87
 
         var date          = gregorianAbsoluteDay - offset; // date
         var period        = Math.ceil(date/daysPeriod);    // period
