@@ -5,47 +5,52 @@
   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url>
   <loc>http://lumeardaron.mariot.me.uk/</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/rivendell-sindarin.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/king-sindarin.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://lumeardaron.mariot.me.uk/king-quenya.html</loc>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/shire-english.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/references.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/duodecimal.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/rivendell-quenya.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/referenceText1.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://lumeardaron.mariot.me.uk/referenceText2.html</loc>
-  <lastmod>2014-01-22T23:10:00+02:00</lastmod>
+  <lastmod>2014-01-23T15:50:00+02:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 </urlset>
