@@ -6,10 +6,11 @@
 doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
+    var tengwarHandler       = new Tengwar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
     var gondorCalendar       = calendar.assembleNumenoreanCalendar(gregorianAbsoluteDay);
     var months               = [1, 30, 30, 30, 30, 30, 31];
-    var monthsQuenyaNormal = [
+    var monthsQuenyaNormal   = [
         'Yestarë',
         'Narvinyë',
         'Nénimë',
@@ -52,7 +53,7 @@ doc.addEventListener('DOMContentLoaded', function() {
         't$1;E7V'         //Mettarë
     );
     var monthCounter = 0;
-    var dayCounter    = 0;
+    var dayCounter   = 0;
 
     while (monthCounter < months.length) {
         if (dayCounter + months[monthCounter] >= gondorCalendar.day) {
@@ -62,7 +63,6 @@ doc.addEventListener('DOMContentLoaded', function() {
         monthCounter++;
     }
 
-
     var formattedYear = gondorCalendar.year;
     var formattedDay  = gondorCalendar.day - dayCounter;
     var formattedMQT  = monthsQuenyaTengwar[monthCounter];
@@ -70,27 +70,22 @@ doc.addEventListener('DOMContentLoaded', function() {
 
     var quenyaTengwarReadableDate = "";
     var quenyaNormalReadableDate  = "";
-    var englishNormalReadableDate   = "";
+    var englishNormalReadableDate = "";
 
     if (months[monthCounter] !== 1) {
-        quenyaTengwarReadableDate = calendar.translateNumber(formattedDay) + ' hJ5 ';
-        quenyaNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' uin ';
-        englishNormalReadableDate   = formattedDay + ' of ';
+        quenyaTengwarReadableDate = tengwarHandler.decimal(formattedDay) + ' ';
+        quenyaNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' ';
+        englishNormalReadableDate = formattedDay + ' of ';
     }
 
-    quenyaTengwarReadableDate += formattedMQT +
-                    ' hJ5 ' + calendar.translateNumber(formattedYear);
-
-    quenyaNormalReadableDate  += formattedMQN +
-                    ' uin ' + formattedYear.toString(12).toUpperCase();
-
-    englishNormalReadableDate   += formattedMQN +
-                    ' of ' + formattedYear;
+    quenyaTengwarReadableDate += formattedMQT + '- ' + tengwarHandler.decimal(formattedYear);
+    quenyaNormalReadableDate  += formattedMQN + ', ' + formattedYear;
+    englishNormalReadableDate += formattedMQN + ' of '  + formattedYear;
 
     var quenyaTengwarReadable = document.createTextNode(quenyaTengwarReadableDate);
     document.getElementById("quenyaTengwar").appendChild(quenyaTengwarReadable);
 
-    var quenyaNormalReadable = document.createTextNode(quenyaNormalReadableDate);
+    var quenyaNormalReadable  = document.createTextNode(quenyaNormalReadableDate);
     document.getElementById("quenyaNormal").appendChild(quenyaNormalReadable);
 
     var englishNormalReadable = document.createTextNode(englishNormalReadableDate);

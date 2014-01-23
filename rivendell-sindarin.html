@@ -25,16 +25,16 @@
     <meta name="msapplication-wide310x150logo" content="./img/icons/mstile-310x150.png">
     <!-- End of icon stuff -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Welcome to Lúmë Ardaron, the site of the elven reckoning." />
     <meta name="keywords" content="lume, ardaron, arda, time, reckoning, tolkien, elven, elvish, elf, silmarillion, quenya, sindarin, tengwar, shire, hobbit, lord, rings, rivendell, imladris, lorien, king, ring, gondor, arnor, numenor, age, calendar, date, elven reckoning, elven tongue, ardalambion, Giancarlo, Mariot, uk" />
-    <meta name="author" content="Giancarlo Mariot"
+    <meta name="author" content="Giancarlo Mariot" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="google" content="notranslate" />
-    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="shortcut icon" href="./img/favicon.png" />
     <title>Lúmë Ardaron - The time of Arda - L&uacute; Imladris</title>
 
     <!-- Bootstrap core CSS -->
@@ -81,7 +81,7 @@
         <div class="collapse navbar-collapse">
           <p class="navbar-text">Reckoning:</p>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="rivendell-sindarin.html">Rivendell</a></li>
+            <li class='active'><a href="rivendell-sindarin.html">Rivendell</a></li>
             <li><a href="king-sindarin.html">The King's</a></li>
             <!-- <li><a href="steward-sindarin.html">The Steward's</a></li> -->
             <li><a href="shire-english.html">Shire</a></li>
@@ -101,39 +101,40 @@
 
       <!-- Begin page content -->
       <div class="container">
+
         <script type="text/javascript">
             var today      = new Date();
             var todayDay   = today.getUTCDate();
             var todayMonth = today.getUTCMonth() + 1;
             var todayYear  = today.getUTCFullYear();
         </script>
-        <script src="./js/calendar.js"></script>
-        <script src="./js/rivendell-sindarin.js"></script>
+
+        <script src='js/tengwar.js'></script>
+        <script src='js/calendar.js'></script>
+        <script src='js/rivendell-sindarin.js'></script>
 
         <div class="page-header hidden-xs">
           <h1>Lúmë Ardaron - The time of Arda</h1>
         </div>
 
-          <!-- Begin date panel -->
-          <div class="panel panel-default">
-            <div class="panel-heading text-center">
-              <div class="btn-group">
-                <a href="rivendell-sindarin.html" class="current btn btn-default active">Sindarin</a>
-                <a href="rivendell-quenya.html"   class="btn btn-default">Quenya</a>
-                <!-- <a href="rivendell-english.html"  class="btn btn-default">English</a> -->
-              </div>
-            </div>
-            <div class="panel-body text-center">
-              <h2 class="tengwar-bold">j~M t%j2#7iG</h2>
-              <h2>Date of Rivendell</h2>
-              <hr />
-              <p id="sindarinTengwar" class="text-center lead tengwar-regular tengwar-large"></p>
-              <p id="sindarinNormal" class="text-center lead"></p>
-              <p id="englishNormal" class="text-center lead"></p>
-              <!-- <p><a class="btn btn-primary" role="button">Learn more</a></p> -->
+        <!-- Begin date panel -->
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <div class="btn-group">
+              <a href="rivendell-sindarin.html" class="current btn btn-default active">Sindarin</a>
+              <a href="rivendell-quenya.html"   class="btn btn-default">Quenya</a>
             </div>
           </div>
-          <!-- End date panel -->
+          <div class="panel-body text-center">
+            <h2 class="tengwar-bold">j~M t%j2#7iG</h2>
+            <h2>Date of Rivendell</h2>
+            <hr />
+            <p id="sindarinTengwar" class="text-center lead tengwar-regular tengwar-large"></p>
+            <p id="sindarinNormal" class="text-center lead"></p>
+            <p id="englishNormal" class="text-center lead"></p>
+          </div>
+        </div>
+        <!-- End date panel -->
 
       </div>
     </div>

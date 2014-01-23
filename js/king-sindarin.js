@@ -6,6 +6,7 @@
 doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
+    var tengwarHandler       = new Tengwar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
     var gondorCalendar       = calendar.assembleNumenoreanCalendar(gregorianAbsoluteDay);
     var months               = [1, 30, 30, 30, 30, 30, 31];
@@ -51,8 +52,9 @@ doc.addEventListener('DOMContentLoaded', function() {
         'x7T3G75Y', // Girithron
         'q5:$5%6H'  // Penninor
     );
+
     var monthCounter = 0;
-    var dayCounter    = 0;
+    var dayCounter   = 0;
 
     while (monthCounter < months.length) {
         if (dayCounter + months[monthCounter] >= gondorCalendar.day) {
@@ -61,7 +63,6 @@ doc.addEventListener('DOMContentLoaded', function() {
         dayCounter += months[monthCounter];
         monthCounter++;
     }
-
 
     var formattedYear = gondorCalendar.year;
     var formattedDay  = gondorCalendar.day - dayCounter;
@@ -73,27 +74,22 @@ doc.addEventListener('DOMContentLoaded', function() {
     var englishNormalReadableDate   = "";
 
     if (months[monthCounter] !== 1) {
-        sindarinTengwarReadableDate = calendar.translateNumber(formattedDay) + ' hJ5 ';
+        sindarinTengwarReadableDate = tengwarHandler.decimal(formattedDay) + ' hJ5 ';
         sindarinNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' uin ';
         englishNormalReadableDate   = formattedDay + ' of ';
     }
 
-    sindarinTengwarReadableDate += formattedMST +
-                    ' hJ5 ' + calendar.translateNumber(formattedYear);
-
-    sindarinNormalReadableDate  += formattedMSN +
-                    ' uin ' + formattedYear.toString(12).toUpperCase();
-
-    englishNormalReadableDate   += formattedMSN +
-                    ' of ' + formattedYear;
+    sindarinTengwarReadableDate += formattedMST + ' hJ5 ' + tengwarHandler.decimal(formattedYear);
+    sindarinNormalReadableDate  += formattedMSN + ' uin ' + formattedYear;
+    englishNormalReadableDate   += formattedMSN + ' of '  + formattedYear;
 
     var sindarinTengwarReadable = document.createTextNode(sindarinTengwarReadableDate);
     document.getElementById("sindarinTengwar").appendChild(sindarinTengwarReadable);
 
-    var sindarinNormalReadable = document.createTextNode(sindarinNormalReadableDate);
+    var sindarinNormalReadable  = document.createTextNode(sindarinNormalReadableDate);
     document.getElementById("sindarinNormal").appendChild(sindarinNormalReadable);
 
-    var englishNormalReadable = document.createTextNode(englishNormalReadableDate);
+    var englishNormalReadable   = document.createTextNode(englishNormalReadableDate);
     document.getElementById("englishNormal").appendChild(englishNormalReadable);
 
 },false);

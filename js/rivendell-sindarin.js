@@ -6,6 +6,7 @@
 doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
+    var tengwarHandler       = new Tengwar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
     var elvishCalendar       = calendar.assembleElvishCalendar(gregorianAbsoluteDay);
     var seasons              = [1, 54, 72, 54, 1, 1, 1];
@@ -67,22 +68,22 @@ doc.addEventListener('DOMContentLoaded', function() {
     var englishNormalReadableDate   = "";
 
     if (seasons[seasonCounter] !== 1) {
-        sindarinTengwarReadableDate = calendar.translateNumber(formattedDay) + ' hJ5 ';
+        sindarinTengwarReadableDate = tengwarHandler.duodecimal(formattedDay) + ' hJ5 ';
         sindarinNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' uin ';
         englishNormalReadableDate   = formattedDay + ' of ';
     }
 
-    sindarinTengwarReadableDate += formattedSST +
-                    ' hJ5 ' + calendar.translateNumber(formattedLoa) +
-                    ' hJ5 ' + calendar.translateNumber(formattedYen);
+    sindarinTengwarReadableDate += formattedSST + ' hJ5 ' +
+                                   tengwarHandler.duodecimal(formattedLoa) + ' hJ5 ' +
+                                   tengwarHandler.duodecimal(formattedYen);
 
-    sindarinNormalReadableDate  += formattedSSN +
-                    ' uin ' + formattedLoa.toString(12).toUpperCase() +
-                    ' uin ' + formattedYen.toString(12).toUpperCase();
+    sindarinNormalReadableDate  += formattedSSN + ' uin ' +
+                                   formattedLoa.toString(12).toUpperCase() + ' uin ' +
+                                   formattedYen.toString(12).toUpperCase();
 
-    englishNormalReadableDate   += formattedSSN +
-                    ' of ' + formattedLoa +
-                    ' of ' + formattedYen;
+    englishNormalReadableDate   += formattedSSN + ' of ' +
+                                   formattedLoa + ' of ' +
+                                   formattedYen;
 
     var sindarinTengwarReadable = document.createTextNode(sindarinTengwarReadableDate);
     document.getElementById("sindarinTengwar").appendChild(sindarinTengwarReadable);

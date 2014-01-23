@@ -6,10 +6,11 @@
 doc.addEventListener('DOMContentLoaded', function() {
 
     var calendar             = new Calendar();
+    var tengwarHandler       = new Tengwar();
     var gregorianAbsoluteDay = calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
     var elvishCalendar       = calendar.assembleElvishCalendar(gregorianAbsoluteDay);
     var seasons              = [1, 54, 72, 54, 1, 1, 1];
-    var seasonQuenyaNormal = [
+    var seasonQuenyaNormal   = [
         'Yestarë',
         'Tuilë',
         'Lairë',
@@ -64,25 +65,25 @@ doc.addEventListener('DOMContentLoaded', function() {
 
     var quenyaTengwarReadableDate = "";
     var quenyaNormalReadableDate  = "";
-    var englishNormalReadableDate   = "";
+    var englishNormalReadableDate = "";
 
     if (seasons[seasonCounter] !== 1) {
-        quenyaTengwarReadableDate = calendar.translateNumber(formattedDay) + ' ';
+        quenyaTengwarReadableDate = tengwarHandler.duodecimal(formattedDay) + ' ';
         quenyaNormalReadableDate  = formattedDay.toString(12).toUpperCase() + ' ';
-        englishNormalReadableDate   = formattedDay + ' of ';
+        englishNormalReadableDate = formattedDay + ' of ';
     }
 
-    quenyaTengwarReadableDate += formattedSST +
-                    ' ' + calendar.translateNumber(formattedLoa) +
-                    '- ' + calendar.translateNumber(formattedYen);
+    quenyaTengwarReadableDate += formattedSST + ' ' +
+                                 tengwarHandler.duodecimal(formattedLoa) + '- ' +
+                                 tengwarHandler.duodecimal(formattedYen);
 
-    quenyaNormalReadableDate  += formattedSSN +
-                    ' ' + formattedLoa.toString(12).toUpperCase() +
-                    ', ' + formattedYen.toString(12).toUpperCase();
+    quenyaNormalReadableDate  += formattedSSN + ' ' +
+                                 formattedLoa.toString(12).toUpperCase() + ', ' +
+                                 formattedYen.toString(12).toUpperCase();
 
-    englishNormalReadableDate   += formattedSSN +
-                    ' of ' + formattedLoa +
-                    ' of ' + formattedYen;
+    englishNormalReadableDate += formattedSSN + ' of ' +
+                                 formattedLoa + ' of ' +
+                                 formattedYen;
 
     var quenyaTengwarReadable = doc.createTextNode(quenyaTengwarReadableDate);
     doc.getElementById("quenyaTengwar").appendChild(quenyaTengwarReadable);
