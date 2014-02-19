@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="main.manifest">
   <head>
     <!-- Icon stuff -->
     <link rel="shortcut icon" href="./img/icons/favicon.ico">
@@ -27,7 +27,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=320.1, initial-scale=1.0">
     <meta name="description" content="Welcome to Lúmë Ardaron, the site of the elven reckoning." />
     <meta name="keywords" content="lume, ardaron, arda, time, reckoning, tolkien, elven, elvish, elf, silmarillion, quenya, sindarin, tengwar, shire, hobbit, lord, rings, rivendell, imladris, lorien, king, ring, gondor, arnor, numenor, age, calendar, date, elven reckoning, elven tongue, ardalambion, Giancarlo, Mariot, uk" />
     <meta name="author" content="Giancarlo Mariot" />
@@ -35,7 +35,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="./img/favicon.png" />
-    <title>Lúmë Ardaron - The time of Arda - References</title>
+    <title>Lúmë Ardaron - References</title>
 
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='css/bootstrap.min.css'>
@@ -65,7 +65,7 @@
     <div id="wrap">
 
           <!-- Fixed navbar -->
-      <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+      <div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -74,7 +74,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand tengwar-regular tengwar-big" href="#">j~Mt$ `CuD7H5</a>
+          <a class="navbar-brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,7 +83,7 @@
           <ul class="nav navbar-nav">
             <li><a href="rivendell-sindarin.html">Rivendell</a></li>
             <li><a href="king-sindarin.html">The King's</a></li>
-            <!-- <li><a href="steward-sindarin.html">The Steward's</a></li> -->
+            <li><a href="steward-sindarin.html">The Steward's</a></li>
             <li><a href="shire-english.html">Shire</a></li>
 
             <li class="dropdown active">
@@ -97,10 +97,13 @@
           </ul>
 
         </div><!-- /.navbar-collapse -->
-      </nav>
+      </div>
 
       <!-- Begin page content -->
-      <div class="container">
+      <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-1 col-xs-1"></div>
+          <div class="col-md-10">
         <div class="page-header">
           <h1>References</h1>
           <small><a href="references.html">&larr; Return</a></small>
@@ -214,17 +217,21 @@
           © 2005,2007 by Dave Woosley, All rights reserved
         </p>
 
+          </div>
+          <div class="col-md-1 col-xs-1"></div>
+        </div>
       </div>
     </div>
 
-    <div id="footer">
+    <div id="footer" class="hidden-xs">
       <div class="container">
         <p class="text-muted">
           Copyright &copy; 2014 Giancarlo Mariot. All rights reserved.
         </p>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src='js/jquery-1.10.2.min.js'></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/ios.js'></script>
   </body>
 </html>

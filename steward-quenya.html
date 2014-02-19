@@ -35,7 +35,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="./img/favicon.png" />
-    <title>Lúmë Ardaron - The time of Arda</title>
+    <title>Lúmë Ardaron - L&uacute;me Ondonóreo</title>
 
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='css/bootstrap.min.css'>
@@ -74,7 +74,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="current navbar-brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
+          <a class="navbar-brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,7 +83,7 @@
           <ul class="nav navbar-nav">
             <li><a href="rivendell-sindarin.html">Rivendell</a></li>
             <li><a href="king-sindarin.html">The King's</a></li>
-            <li><a href="steward-sindarin.html">The Steward's</a></li>
+            <li class='active'><a href="steward-sindarin.html">The Steward's</a></li>
             <li><a href="shire-english.html">Shire</a></li>
 
             <li class="dropdown">
@@ -115,10 +115,7 @@
         <script src='js/base.js'></script>
         <script src='js/tengwar.js'></script>
         <script src='js/calendar.js'></script>
-        <script src='js/rivendell.js'></script>
-        <script src='js/king.js'></script>
         <script src='js/steward.js'></script>
-        <script src='js/shire.js'></script>
 
         <div class="page-header hidden-xs">
           <h1>Lúmë Ardaron - The time of Arda</h1>
@@ -126,33 +123,19 @@
 
         <!-- Begin date panel -->
         <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <div class="btn-group">
+              <a href="steward-sindarin.html" class="btn btn-default">Sindarin</a>
+              <a href="steward-quenya.html"   class="btn btn-default active">Quenya</a>
+              <a href="steward-english.html"  class="btn btn-default">English</a>
+            </div>
+          </div>
           <div class="panel-body text-center">
-            <h2>Reckoning of Rivendell</h2>
-            <div class="well">
-                <p id="rivendellQuenyaTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="rivendellSindarinTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="rivendellEnglishNormal" class="text-center lead"></p>
-            </div>
+            <h2 class="tengwar-bold">j~Mt$ `N2H5~N7F`N</h2><!-- Ondonóre -->
+            <h2>Date of Gondor</h2>
             <hr />
-            <h2>The King's Reckoning</h2>
-            <div class="well">
-                <p id="kingQuenyaTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="kingSindarinTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="kingEnglishNormal" class="text-center lead"></p>
-            </div>
-            <hr />
-            <h2>The Steward's Reckoning</h2>
-            <div class="well">
-                <p id="stewardQuenyaTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="stewardSindarinTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="stewardEnglishNormal" class="text-center lead"></p>
-            </div>
-            <hr />
-            <h2>Reckoning of the Shire</h2>
-            <div class="well">
-                <p id="shireEnglishNormal" class="text-center lead"></p>
-            </div>
-            <hr />
+            <p id="stewardQuenyaTengwar" class="text-center lead tengwar-regular tengwar-large"></p>
+            <p id="stewardQuenyaNormal" class="text-center lead"></p>
           </div>
         </div>
         <!-- End date panel -->

@@ -1,3 +1,7 @@
+.navbar {
+    margin-bottom: 0;
+}
+
 /* Fonts
 -------------------------------------------------- */
 
@@ -21,6 +25,9 @@
     font-size: 2em;
 }
 
+.tengwar-medium {
+    font-size: 1.5em;
+}
 
 .normal-size,
 .normal-size p {
