@@ -12,6 +12,7 @@ doc.addEventListener('DOMContentLoaded', function() {
     var quenyaNormal    = base.issetElementId("rivendellQuenyaNormal");
     var sindarinNormal  = base.issetElementId("rivendellSindarinNormal");
     var englishNormal   = base.issetElementId("rivendellEnglishNormal");
+    var calendarCanvas  = base.issetElementId("calendarCanvas");
 
     var calendar             = calendar || new Calendar();
     var gregorianAbsoluteDay = gregorianAbsoluteDay || calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
@@ -72,7 +73,7 @@ doc.addEventListener('DOMContentLoaded', function() {
             'First Day',
             'Spring',
             'Summer',
-            'Fall',
+            'Autumn',
             'Middle Day 1',
             'Middle Day 2',
             'Middle Day 3'
@@ -164,9 +165,10 @@ doc.addEventListener('DOMContentLoaded', function() {
      * Writes date to DOM
      */
     var writeDate = function(param) {
+        console.log(param);
         var dateText     = "";
         var dateTextNode = null;
-        if (param.seasons[seasonCounter] !== 1) {
+        if (seasons[seasonCounter] !== 1) {
             dateText  = param.tengwar ? tengwarHandler.duodecimal(formattedDay) : formattedDay;
             dateText += param.separators[0];
         }
@@ -175,11 +177,30 @@ doc.addEventListener('DOMContentLoaded', function() {
             dateText += tengwarHandler.duodecimal(formattedLoa) + param.separators[2];
             dateText += tengwarHandler.duodecimal(formattedYen);
         } else {
-            dateText += formattedLoa.toString(12).toUpperCase() + param.separators[2];
-            dateText += formattedYen.toString(12).toUpperCase();
+            if (param.decimal) {
+                dateText += formattedLoa.toString().toUpperCase() + param.separators[2];
+                dateText += formattedYen.toString().toUpperCase();
+            } else {
+                dateText += formattedLoa.toString(12).toUpperCase() + param.separators[2];
+                dateText += formattedYen.toString(12).toUpperCase();
+            }
         }
         dateTextNode = document.createTextNode(dateText);
         document.getElementById(param.element).appendChild(dateTextNode);
+
+        // Testing --
+        if (calendarCanvas) {
+            var builder = new MonthBuilder();
+            var months = [
+                {
+                           'name': param.seasons[seasonCounter]
+                  ,   'totalDays': seasons[seasonCounter]
+                  , 'currentDate': formattedDay
+                }
+            ];
+            builder.drawMonth("calendarCanvas", months, 6, param.tengwar, !param.decimal);
+        }
+        // -- testing
     }
 
     // Write to DOM:
@@ -218,6 +239,7 @@ doc.addEventListener('DOMContentLoaded', function() {
     if (englishNormal) {
         writeDate({
             tengwar: false,
+            decimal: true,
             seasons: seasonEnglishNormal,
             element: "rivendellEnglishNormal",
             separators: [' of ', ' of ', ' of ']

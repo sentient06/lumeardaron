@@ -17,18 +17,18 @@ doc.addEventListener('DOMContentLoaded', function() {
     var gregorianAbsoluteDay = gregorianAbsoluteDay || calendar.calculateAbsoluteDate(todayDay, todayMonth, todayYear);
     var gondorCalendar       = calendar.assembleNumenoreanCalendar(gregorianAbsoluteDay);
 
-    var months               = [1, 30, 30, 30, 1, 30, 30, 30, 1];
+    var months = [1, 30, 30, 30, 1, 30, 30, 30, 1];
 
     if (sindarinNormal) {
         var monthsSindarinNormal = [
-            'Minien',
-            'Narwain',
-            'Nínui',
-            'Gwaeron',
-            'Tuilor',
-            'Gwirith',
-            'Lothron',
-            'Nórui'
+            'Minien',  // 1
+            'Narwain', // 30
+            'Nínui',   // 30
+            'Gwaeron', // 30
+            'Tuilor',  // 1
+            'Gwirith', // 30
+            'Lothron', // 30
+            'Nórui'    // 30
         ];
     }
 
@@ -121,14 +121,14 @@ doc.addEventListener('DOMContentLoaded', function() {
 
     if (sindarinNormal) {
         monthsSindarinNormal.push(
-            'Cerveth',
-            'Urui',
-            'Ivanneth',
-            'Iavor',
-            'Narbeleth',
-            'Hithui',
-            'Girithron',
-            'Penninor'
+            'Cerveth',   // 30
+            'Urui',      // 30
+            'Ivanneth',  // 30
+            'Iavor',     // 1
+            'Narbeleth', // 30
+            'Hithui',    // 30
+            'Girithron', // 30
+            'Penninor'   // 1
         );
     }
     if (sindarinTengwar) {
@@ -204,7 +204,7 @@ doc.addEventListener('DOMContentLoaded', function() {
     var writeDate = function(param) {
         var dateText     = "";
         var dateTextNode = null;
-        if (param.months[monthCounter] !== 1) {
+        if (months[monthCounter] !== 1) {
             dateText  = param.tengwar ? tengwarHandler.decimal(formattedDay) : formattedDay;
             dateText += param.separators[0];
         }

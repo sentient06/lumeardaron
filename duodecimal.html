@@ -26,6 +26,7 @@
     <!-- End of icon stuff -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=320.1, initial-scale=1.0">
     <meta name="description" content="Welcome to Lúmë Ardaron, the site of the elven reckoning." />
@@ -35,10 +36,10 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="./img/favicon.png" />
-    <title>Lúmë Ardaron - Duodecimal system</title>
+    <title>Lúmë Ardaron - - Duodecimal system</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <!-- stylesheet bootstrap -->
 
     <!-- Custom styles for this template -->
     <link rel='stylesheet' href='css/sticky-footer-navbar.css'>
@@ -48,6 +49,9 @@
 
     <!-- Main style -->
     <link rel='stylesheet' href='css/main.css'>
+
+    <!-- Javascript base, better load from beginning becs some JS is loaded in the middle of the body -->
+    <script src='js/base.js'></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -60,50 +64,39 @@
   </head>
 
   <body>
-
     <!-- Wrap all page content here -->
     <div id="wrap">
 
-          <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-          <p class="navbar-text">Reckoning:</p>
-          <ul class="nav navbar-nav">
-            <li><a href="rivendell-sindarin.html">Rivendell</a></li>
-            <li><a href="king-sindarin.html">The King's</a></li>
-            <li><a href="steward-sindarin.html">The Steward's</a></li>
-            <li><a href="shire-english.html">Shire</a></li>
-
-            <li class="dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">How it works <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="references.html">References</a></li>
-                <li class='active'><a href="duodecimal.html">Duodecimal system</a></li>
-                <!-- <li><a href="calculating.html">Calculating the date</a></li> -->
-              </ul>
-            </li>
-          </ul>
-
-        </div><!-- /.navbar-collapse -->
+          <div class="_navbar">
+        <a class="brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
+        <a class="mobile-button" href="#">
+          <i></i>
+          <i></i>
+          <i></i>
+        </a>
+        <ul>
+          <li><span>Reckoning:</span></li>
+          <li><a href="rivendell-sindarin.html">Rivendell</a></li>
+          <li><a href="king-sindarin.html">The King's</a></li>
+          <li><a href="steward-sindarin.html">The Steward's</a></li>
+          <li><a href="shire-english.html">Shire</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-button" data-toggle="dropdown-menu">How it works <i class="arrow-down"></i></a>
+            <ul id="dropdown-menu" class="menu">
+              <li><a href="references.html">References</a></li>
+              <li class='current'><a class='current' href="duodecimal.html">Duodecimal system</a></li>
+              <!-- <li><a href="calculating.html">Calculating the date</a></li> -->
+            </ul>
+          </li>
+        </ul>
       </div>
 
-      <!-- Begin page content -->
-      <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-1 col-xs-1"></div>
-          <div class="col-md-10">
+    <!-- Begin page content -->
+    <div class="_row">
+        <div class="column edge"></div>
+        <div class="column main">
+<!-- &#8586; -->
+<!-- &#8587; -->
         <div class="page-header">
           <h1>Duodecimal system</h1>
         </div>
@@ -120,17 +113,19 @@
         <h2>Places</h2>
 
         <p>
-          In a duodecimal place system, ten is written as <strong>A</strong> (or <strong>ᘔ</strong>), eleven is written as <strong>B</strong> (or <strong>Ɛ</strong>), twelve is written as <strong>10</strong>. According to this notation, <strong>50</strong> means sixty (= five times twelve), <strong>100</strong> means one hundred forty-four (= twelve times twelve).
+          In a duodecimal place system, ten is written as <strong>A</strong> (or <strong>ᘔ</strong>), eleven is written as <strong>B</strong> (or <strong>Ɛ</strong>), twelve is written as <strong>10</strong>, meaning "1 dozen and 0 units", instead of "1 ten and 0 units", whereas <strong>12</strong> means "1 dozen and 2 units" (i.e. the same number that in decimal is written as "14"). According to this notation, <strong>50</strong> means sixty (= five times twelve), <strong>60</strong> means seventy two or "half a gross" (= six times twelve), <strong>100</strong> means one hundred forty-four (= twelve times twelve) or "1 gross", <strong>1000</strong> means one thousand seven hundred twenty eight or "1 great gross", and <strong>0.1</strong> means "1 twelfth" instead of "1 tenth".
         </p>
 
         <div class="table-responsive">
           <table class="table table-hover table-condensed">
             <thead>
               <tr>
-                <th colspan="2"></th><th colspan="2">Decimal Equivalent</th>
+                <th colspan="2"></th>
+                <th colspan="2">Decimal Equivalent</th>
               </tr>
             </thead>
             <tbody>
+              <tr><td class="text-right">      0.1</td><td>one twelfth</td><td>--    </td><td>       0.08333...</td></tr>
               <tr><td class="text-right">       10</td><td>twelve (or a dozen)</td><td>--    </td><td>       12</td></tr>
               <tr><td class="text-right">      100</td><td>one gross          </td><td>12^2 =</td><td>      144</td></tr>
               <tr><td class="text-right">     1000</td><td>one great gross    </td><td>12^3 =</td><td>    1 728</td></tr>
@@ -194,10 +189,10 @@
             Adapted from... somewhere that claims to adapt from the Wikipedia article "Places" (which doesn't exist). Please contact me if you know the original source or author.
           </small>
         </p>
-          </div>
-          <div class="col-md-1 col-xs-1"></div>
         </div>
+        <div class="column edge"></div>
       </div>
+      <div class="space"></div>
     </div>
 
     <div id="footer" class="hidden-xs">
@@ -207,8 +202,9 @@
         </p>
       </div>
     </div>
-    <script src='js/jquery-1.10.2.min.js'></script>
-    <script src='js/bootstrap.min.js'></script>
+    <!-- javascript jquery-1.10.2.min -->
+    <!-- javascript bootstrap.min -->
+    <script src='js/menu.js'></script>
     <script src='js/ios.js'></script>
   </body>
 </html>

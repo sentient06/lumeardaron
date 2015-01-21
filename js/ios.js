@@ -41,9 +41,9 @@ doc.addEventListener('DOMContentLoaded', function() {
                     if (noddy.href !== "#") {
                         event.preventDefault();
                         document.location.href = noddy.href;
-                        // console.log('alternative');
+                        console.log('alternative');
                     } else {
-                        // console.log('normal');
+                        console.log('normal');
                         return true;
                     }
                 }
@@ -52,7 +52,7 @@ doc.addEventListener('DOMContentLoaded', function() {
         }
     } else {
         // message = "Normal browser";
-        // console.log('other');
+        console.log('other');
         return true;
     }
 

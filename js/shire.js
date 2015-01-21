@@ -61,7 +61,7 @@ doc.addEventListener('DOMContentLoaded', function() {
     var writeDate = function(param) {
         var dateText     = "";
         var dateTextNode = null;
-        if (param.months[monthCounter] !== 1) {
+        if (months[monthCounter] !== 1) {
             dateText  = param.tengwar ? tengwarHandler.decimal(formattedDay) : formattedDay;
             dateText += param.separators[0];
         }

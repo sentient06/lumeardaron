@@ -26,6 +26,7 @@
     <!-- End of icon stuff -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=320.1, initial-scale=1.0">
     <meta name="description" content="Welcome to Lúmë Ardaron, the site of the elven reckoning." />
@@ -38,7 +39,7 @@
     <title>Lúmë Ardaron - The time of Arda</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <!-- stylesheet bootstrap -->
 
     <!-- Custom styles for this template -->
     <link rel='stylesheet' href='css/sticky-footer-navbar.css'>
@@ -48,6 +49,9 @@
 
     <!-- Main style -->
     <link rel='stylesheet' href='css/main.css'>
+
+    <!-- Javascript base, better load from beginning becs some JS is loaded in the middle of the body -->
+    <script src='js/base.js'></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -60,50 +64,37 @@
   </head>
 
   <body>
-
     <!-- Wrap all page content here -->
     <div id="wrap">
 
-          <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="current navbar-brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-          <p class="navbar-text">Reckoning:</p>
-          <ul class="nav navbar-nav">
-            <li><a href="rivendell-sindarin.html">Rivendell</a></li>
-            <li><a href="king-sindarin.html">The King's</a></li>
-            <li><a href="steward-sindarin.html">The Steward's</a></li>
-            <li><a href="shire-english.html">Shire</a></li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">How it works <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="references.html">References</a></li>
-                <li><a href="duodecimal.html">Duodecimal system</a></li>
-                <!-- <li><a href="calculating.html">Calculating the date</a></li> -->
-              </ul>
-            </li>
-          </ul>
-
-        </div><!-- /.navbar-collapse -->
+          <div class="_navbar">
+        <a class="current brand tengwar-regular tengwar-big" href="index.html">j~Mt$ `CuD7H5</a>
+        <a class="mobile-button" href="#">
+          <i></i>
+          <i></i>
+          <i></i>
+        </a>
+        <ul>
+          <li><span>Reckoning:</span></li>
+          <li><a href="rivendell-sindarin.html">Rivendell</a></li>
+          <li><a href="king-sindarin.html">The King's</a></li>
+          <li><a href="steward-sindarin.html">The Steward's</a></li>
+          <li><a href="shire-english.html">Shire</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-button" data-toggle="dropdown-menu">How it works <i class="arrow-down"></i></a>
+            <ul id="dropdown-menu" class="menu">
+              <li><a href="references.html">References</a></li>
+              <li><a href="duodecimal.html">Duodecimal system</a></li>
+              <!-- <li><a href="calculating.html">Calculating the date</a></li> -->
+            </ul>
+          </li>
+        </ul>
       </div>
 
-      <!-- Begin page content -->
-      <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-1 col-xs-1"></div>
-          <div class="col-md-10">
+    <!-- Begin page content -->
+    <div class="_row">
+        <div class="column edge"></div>
+        <div class="column main">
 
         <script type="text/javascript">
             var today      = new Date();
@@ -112,7 +103,6 @@
             var todayYear  = today.getUTCFullYear();
         </script>
 
-        <script src='js/base.js'></script>
         <script src='js/tengwar.js'></script>
         <script src='js/calendar.js'></script>
         <script src='js/rivendell.js'></script>
@@ -125,42 +115,40 @@
         </div>
 
         <!-- Begin date panel -->
-        <div class="panel panel-default">
-          <div class="panel-body text-center">
+        <div class="panel padded" style="text-align: center;">
             <h2>Reckoning of Rivendell</h2>
             <div class="well">
-                <p id="rivendellQuenyaTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="rivendellSindarinTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="rivendellEnglishNormal" class="text-center lead"></p>
+                <p id="rivendellQuenyaTengwar" class="lead tengwar-regular tengwar-medium"></p>
+                <p id="rivendellSindarinTengwar" class="lead tengwar-regular tengwar-medium"></p>
+                <p id="rivendellEnglishNormal" class="lead"></p>
             </div>
             <hr />
             <h2>The King's Reckoning</h2>
             <div class="well">
-                <p id="kingQuenyaTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="kingSindarinTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="kingEnglishNormal" class="text-center lead"></p>
+                <p id="kingQuenyaTengwar" class="lead tengwar-regular tengwar-medium"></p>
+                <p id="kingSindarinTengwar" class="lead tengwar-regular tengwar-medium"></p>
+                <p id="kingEnglishNormal" class="lead"></p>
             </div>
             <hr />
             <h2>The Steward's Reckoning</h2>
             <div class="well">
-                <p id="stewardQuenyaTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="stewardSindarinTengwar" class="text-center lead tengwar-regular tengwar-medium"></p>
-                <p id="stewardEnglishNormal" class="text-center lead"></p>
+                <p id="stewardQuenyaTengwar" class="lead tengwar-regular tengwar-medium"></p>
+                <p id="stewardSindarinTengwar" class="lead tengwar-regular tengwar-medium"></p>
+                <p id="stewardEnglishNormal" class="lead"></p>
             </div>
             <hr />
             <h2>Reckoning of the Shire</h2>
             <div class="well">
-                <p id="shireEnglishNormal" class="text-center lead"></p>
+                <p id="shireEnglishNormal" class="lead"></p>
             </div>
             <hr />
-          </div>
         </div>
         <!-- End date panel -->
 
-          </div>
-          <div class="col-md-1 col-xs-1"></div>
         </div>
+        <div class="column edge"></div>
       </div>
+      <div class="space"></div>
     </div>
 
     <div id="footer" class="hidden-xs">
@@ -170,8 +158,9 @@
         </p>
       </div>
     </div>
-    <script src='js/jquery-1.10.2.min.js'></script>
-    <script src='js/bootstrap.min.js'></script>
+    <!-- javascript jquery-1.10.2.min -->
+    <!-- javascript bootstrap.min -->
+    <script src='js/menu.js'></script>
     <script src='js/ios.js'></script>
   </body>
 </html>
