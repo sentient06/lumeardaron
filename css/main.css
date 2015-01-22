@@ -215,7 +215,43 @@ p.lead {
   font-weight: 200;
   line-height: 1.4; }
 
-/* Bootstrap remnants */
+/* Adapted bootstrap
+-------------------------------------------------- */
+.panel > .header {
+  background: #F5F5F5;
+  padding: 10px;
+  border-bottom: 1px solid #DDD; }
+
+.chained-buttons {
+  display: inline-block; }
+  .chained-buttons > a {
+    display: block;
+    float: left;
+    border: 1px dashed red;
+    padding: 6px 12px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid #CCC;
+    color: #333;
+    background: #FFF;
+    margin-left: -1px; }
+    .chained-buttons > a:first-of-type {
+      border-radius: 4px 0 0 4px; }
+    .chained-buttons > a:last-of-type {
+      border-radius: 0 4px 4px 0; }
+    .chained-buttons > a:first-of-type:last-of-type {
+      border-radius: 4px; }
+    .chained-buttons > a.current, .chained-buttons > a:hover {
+      background: #EBEBEB;
+      border-color: #ADADAD;
+      color: #333;
+      text-decoration: none; }
+    .chained-buttons > a.current {
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+
+/* Bootstrap remnants
+-------------------------------------------------- */
 code {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   padding: 2px 4px;
@@ -236,7 +272,9 @@ table {
   max-width: 100%;
   background-color: transparent;
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+  overflow-x: scroll;
+  overflow-y: hidden; }
   table thead {
     box-sizing: border-box;
     display: table-header-group;
@@ -254,12 +292,8 @@ table {
   table td, table th {
     display: table-cell;
     white-space: nowrap; }
-  table tr:hover td {
+  table.table tr:hover td {
     background-color: #f5f5f5; }
-
-table {
-  overflow-x: scroll;
-  overflow-y: hidden; }
   table.table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 2px solid #ddd; }
@@ -394,51 +428,20 @@ blockquote {
     background-color: #3276b1;
     border-color: #285e8e; }
 
-.panel > .header {
-  background: #F5F5F5;
-  padding: 10px;
-  border-bottom: 1px solid #DDD; }
-
-.chained-buttons {
-  display: inline-block; }
-  .chained-buttons > a {
-    display: block;
-    float: left;
-    border: 1px dashed red;
-    padding: 6px 12px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    border: 1px solid #CCC;
-    color: #333;
-    background: #FFF;
-    margin-left: -1px; }
-    .chained-buttons > a:first-of-type {
-      border-radius: 4px 0 0 4px; }
-    .chained-buttons > a:last-of-type {
-      border-radius: 0 4px 4px 0; }
-    .chained-buttons > a:first-of-type:last-of-type {
-      border-radius: 4px; }
-    .chained-buttons > a.current, .chained-buttons > a:hover {
-      background: #EBEBEB;
-      border-color: #ADADAD;
-      color: #333;
-      text-decoration: none; }
-    .chained-buttons > a.current {
-      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-
-._row {
+/* Columns
+-------------------------------------------------- */
+.row {
   display: block;
   float: left;
   clear: both;
   width: 100%; }
-  ._row .column {
+  .row .column {
     display: block;
     float: left;
     min-height: 1px; }
-    ._row .column.edge {
+    .row .column.edge {
       width: 7%; }
-    ._row .column.main {
+    .row .column.main {
       width: 86%;
       padding: 0 15px; }
 
@@ -452,10 +455,13 @@ div.space {
 .centre {
   text-align: center; }
 
+/* JS Generated elements
+-------------------------------------------------- */
 #calendarCanvas > div {
   padding-top: 20px; }
   #calendarCanvas > div > table {
     margin: 0 auto;
+    width: auto;
     border-collapse: collapse; }
     #calendarCanvas > div > table > thead > tr > th, #calendarCanvas > div > table > tbody > tr > td {
       border: 1px solid #DDD;
@@ -470,3 +476,18 @@ div.space {
       #calendarCanvas > div > table > tbody > tr > td.active {
         color: red;
         background: #EEE; }
+      #calendarCanvas > div > table > tbody > tr > td:hover {
+        background-color: #f5f5f5; }
+
+/* Mobile styles
+-------------------------------------------------- */
+@media (max-width: 320px) {
+  #calendarCanvas > div > table {
+    width: 100%; }
+    #calendarCanvas > div > table > thead > tr > th {
+      font-size: 0.9em; }
+    #calendarCanvas > div > table > tbody > tr > td {
+      padding: 2px;
+      width: 24.16667px;
+      font-size: 0.68em;
+      overflow: hidden; } }

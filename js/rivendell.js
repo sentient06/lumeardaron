@@ -9,6 +9,7 @@ doc.addEventListener('DOMContentLoaded', function() {
 
     var quenyaTengwar   = base.issetElementId("rivendellQuenyaTengwar");
     var sindarinTengwar = base.issetElementId("rivendellSindarinTengwar");
+    var englishTengwar  = base.issetElementId("rivendellEnglishTengwar");
     var quenyaNormal    = base.issetElementId("rivendellQuenyaNormal");
     var sindarinNormal  = base.issetElementId("rivendellSindarinNormal");
     var englishNormal   = base.issetElementId("rivendellEnglishNormal");
@@ -80,6 +81,18 @@ doc.addEventListener('DOMContentLoaded', function() {
         ];
     }
 
+    if (englishTengwar) {
+        var seasonEnglishTengwar = [
+            'e6Ti1 2lE',
+            '8q7b%',
+            '8t:&6R',
+            'yH1t&5',
+            't2:%jR 2hE ' + "\u00F1\u00A8",
+            't2:%jR 2hE ' + "\u00F2\u2122",
+            't2:%jR 2hE ' + "\u00F3\u02DC"
+        ];
+    }
+
     if (elvishCalendar.leapLoa) {
         seasons.push(1, 1, 1);
         if (sindarinNormal) {
@@ -96,6 +109,13 @@ doc.addEventListener('DOMContentLoaded', function() {
         }
         if (englishNormal) {
             seasonEnglishNormal.push('Middle Day 4', 'Middle Day 5', 'Middle Day 6');
+        }
+        if (englishTengwar) {
+            seasonEnglishTengwar.push(
+                't2:%jR 2hE ' + "\u00F4\u00A8",
+                't2:%jR 2hE ' + "\u00F5\u2122",
+                't2:%jR 2hE ' + "\u00F6\u00A8"
+            );
         }
     }
 
@@ -141,6 +161,14 @@ doc.addEventListener('DOMContentLoaded', function() {
             'Last Day'
         );
     }
+    if (englishTengwar) {
+        seasonEnglishTengwar.push(
+            'ehR2b%',
+            'y1pG6R',
+            '817Gb%',
+            'jiE1 2hE'
+        );
+    }
 
     var seasonCounter = 0;
     var dayCounter    = 0;
@@ -157,7 +185,7 @@ doc.addEventListener('DOMContentLoaded', function() {
     var formattedLoa = (elvishCalendar.cycle - 1) * 12 + elvishCalendar.loa;
     var formattedDay = elvishCalendar.day - dayCounter;
 
-    if (quenyaTengwar || sindarinTengwar) {
+    if (quenyaTengwar || sindarinTengwar || englishTengwar) {
         var tengwarHandler = new Tengwar();
     }
 
@@ -165,17 +193,26 @@ doc.addEventListener('DOMContentLoaded', function() {
      * Writes date to DOM
      */
     var writeDate = function(param) {
-        console.log(param);
+        // console.log(param);
         var dateText     = "";
         var dateTextNode = null;
         if (seasons[seasonCounter] !== 1) {
-            dateText  = param.tengwar ? tengwarHandler.duodecimal(formattedDay) : formattedDay;
+            if (param.decimal) {
+                dateText = param.tengwar ? tengwarHandler.decimal(formattedDay) : formattedDay;
+            } else {
+                dateText = param.tengwar ? tengwarHandler.duodecimal(formattedDay) : formattedDay;
+            }
             dateText += param.separators[0];
         }
         dateText += param.seasons[seasonCounter] + param.separators[1];
         if (param.tengwar) {
-            dateText += tengwarHandler.duodecimal(formattedLoa) + param.separators[2];
-            dateText += tengwarHandler.duodecimal(formattedYen);
+            if (param.decimal) {
+                dateText += tengwarHandler.decimal(formattedLoa) + param.separators[2];
+                dateText += tengwarHandler.decimal(formattedYen);
+            } else {
+                dateText += tengwarHandler.duodecimal(formattedLoa) + param.separators[2];
+                dateText += tengwarHandler.duodecimal(formattedYen);
+            }
         } else {
             if (param.decimal) {
                 dateText += formattedLoa.toString().toUpperCase() + param.separators[2];
@@ -243,6 +280,15 @@ doc.addEventListener('DOMContentLoaded', function() {
             seasons: seasonEnglishNormal,
             element: "rivendellEnglishNormal",
             separators: [' of ', ' of ', ' of ']
+        });
+    }
+    if (englishTengwar) {
+        writeDate({
+            tengwar: true,
+            decimal: true,
+            seasons: seasonEnglishTengwar,
+            element: "rivendellEnglishTengwar",
+            separators: [' W ', ' W ', ' W ']
         });
     }
 

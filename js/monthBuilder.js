@@ -13,10 +13,7 @@ function MonthBuilder() {
     };
 
     _this.drawMonth = function(targetId, months, weekDays, tengwar, duodecimal) {
-
-        var base = new Base();
-
-console.log(months);
+        // var base = new Base();
         if (months[0].totalDays === 1) {
             return;
         }
