@@ -43,9 +43,7 @@ function MonthBuilder() {
             $title.setAttribute("colspan", rowItems);
             $title.appendChild(monthName);
             $ttltr.appendChild($title);
-            $thead.appendChild($ttltr);
-
-            
+            $thead.appendChild($ttltr);            
 
             // Iterate rows (days of the week):
             for (var w = 0; w < weekDays; w++) {
@@ -68,7 +66,11 @@ function MonthBuilder() {
                             txtValue = numValue.toString(12).toUpperCase();
                         }
                     } else {
-                        txtValue = numValue;
+                        if (tengwar) {
+                            txtValue = tengwarHandler.decimal(numValue);
+                        } else {
+                            txtValue = numValue;
+                        }
                     }
                     
                     // else {
