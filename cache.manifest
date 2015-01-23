@@ -30,10 +30,32 @@ duodecimal.html
 calculating.html
 
 
+# fonts/glyphicons-halflings-regular.ttf
+# fonts/tngan-webfont.ttf
+# fonts/tnganb-webfont.ttf
+# fonts/tnganbi-webfont.ttf
+# fonts/tngani-webfont.ttf
+
+
+fonts/glyphicons-halflings-regular.eot
+fonts/glyphicons-halflings-regular.svg
 fonts/glyphicons-halflings-regular.ttf
+fonts/glyphicons-halflings-regular.woff
+fonts/tngan-webfont.eot
+fonts/tngan-webfont.svg
 fonts/tngan-webfont.ttf
+fonts/tngan-webfont.woff
+fonts/tnganb-webfont.eot
+fonts/tnganb-webfont.svg
 fonts/tnganb-webfont.ttf
+fonts/tnganb-webfont.woff
+fonts/tnganbi-webfont.eot
+fonts/tnganbi-webfont.svg
 fonts/tnganbi-webfont.ttf
+fonts/tnganbi-webfont.woff
+fonts/tngani-webfont.eot
+fonts/tngani-webfont.svg
 fonts/tngani-webfont.ttf
+fonts/tngani-webfont.woff
 
 #1056
