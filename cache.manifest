@@ -1,11 +1,15 @@
 CACHE MANIFEST
 
-js/tengwar.js
+js/base.js
 js/calendar.js
+js/ios.js
 js/king.js
+js/menu.js
+js/monthBuilder.js
 js/rivendell.js
 js/shire.js
 js/steward.js
+js/tengwar.js
 
 css/sticky-footer-navbar.css
 css/tengwar.css
@@ -32,4 +36,4 @@ fonts/tnganb-webfont.ttf
 fonts/tnganbi-webfont.ttf
 fonts/tngani-webfont.ttf
 
-#1029
+#1056
