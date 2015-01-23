@@ -1,18 +1,12 @@
-#2100
 CACHE MANIFEST
 
-js/bootstrap.min.js
-js/base.js
 js/tengwar.js
 js/calendar.js
-js/rivendell.js
 js/king.js
+js/rivendell.js
+js/shire.js
 js/steward.js
-js/shire-english.js
-js/ios.js
 
-css/bootstrap-theme.min.css
-css/bootstrap.min.css
 css/sticky-footer-navbar.css
 css/tengwar.css
 css/main.css
@@ -20,13 +14,10 @@ css/main.css
 index.html
 rivendell-sindarin.html
 rivendell-quenya.html
-rivendell-english.html
 king-sindarin.html
 king-quenya.html
-king-english.html
 steward-sindarin.html
 steward-quenya.html
-steward-english.html
 shire-english.html
 references.html
 referenceText1.html
@@ -34,8 +25,11 @@ referenceText2.html
 duodecimal.html
 calculating.html
 
+
 fonts/glyphicons-halflings-regular.ttf
 fonts/tngan-webfont.ttf
 fonts/tnganb-webfont.ttf
 fonts/tnganbi-webfont.ttf
 fonts/tngani-webfont.ttf
+
+#1029
